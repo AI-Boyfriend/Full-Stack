@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - AI Boyfriend Chatbot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="navbar">
+    <a href="aibots.html">AI Bots</a>
+    <a href="account.html" class="active">My Account</a>
+    <a href="settings.html">Settings</a>
+    <a href="about.html">About</a>
+</div>
+
+<div class="main-content">
+    <h1>Account Settings</h1>
+    <div class="account-settings">
+        <form action="#" method="post">
+            <div class="profile-pic-container">
+                <img src="stockdemo.jpg" alt="Profile Picture" class="profile-pic">
+            </div>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" value="CoolBotMaster">
+            </div>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="Jamie Doe">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="jamiedoe@example.com">
+            </div>
+            <div class="form-group">
+                <label for="password">New Password:</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <div class="form-group">
+                <label for="privacy">Privacy Settings:</label>
+                <select id="privacy" name="privacy">
+                    <option value="public">Public</option>
+                    <option value="friends">Friends Only</option>
+                    <option value="private" selected>Private</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="two-factor">Two-factor Authentication:</label>
+                <input type="checkbox" id="two-factor" name="two-factor" checked>
+                <label for="two-factor">Enabled</label>
+            </div>
+            <!-- Additional settings can be added here -->
+            <button type="submit" class="save-btn">Save Changes</button>
+        </form>
+    </div>
+</div>
+
+<script src="scripts.js"></script>
+
+</body>
+</html>
