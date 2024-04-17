@@ -55,21 +55,38 @@ background-image: radial-gradient(circle at center, transparent, rgba(0, 0, 0, 0
     outline: none; /* Removes the outline */
 }
 
-/* Style for user messages */
-.user-message {
-    border-radius: var(--rad) var(--rad-sm) var(--rad-sm) var(--rad);
-    background: #42a5f5;
-    color: #fff;
-    margin-left: auto;
+.chat-history {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 60px 10px 10px; /* Add padding to the top to avoid overlap with navbar */
+    margin: 10px;
+    background: #fff; /* White background for chat history */
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align messages to the bottom */
 }
 
-/* Style for AI messages */
-.bot-message {
-    border-radius: var(--rad-sm) var(--rad) var(--rad) var(--rad-sm);
-    background: #f1f1f1;
-    color: #555;
-    margin-right: auto;
+.user-message, .bot-message {
+    max-width: 70%; /* Limit width of chat boxes */
+    padding: 10px;
+    border-radius: 15px; /* Rounded borders */
+    margin-bottom: 10px;
 }
+
+.user-message {
+    background-color: #DCF8C6;
+    color: #000;
+    text-align: right;
+}
+
+.bot-message {
+    background-color: #ECECEC;
+    color: #000;
+    text-align: left;
+}
+
 
 
 
