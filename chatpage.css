@@ -80,7 +80,7 @@ header h2 {
   max-width: 75%;
   color: #fff;
   font-size: 0.95rem;
-  background: #724ae8;
+  background-image: linear-gradient(#1ae1ff, #2e89ff, #0050d1);
 }
 .chatbox .incoming p {
   border-radius: 10px 10px 10px 0;
