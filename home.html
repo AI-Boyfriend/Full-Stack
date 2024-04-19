@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Home Page</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <header>
+            <a href="#" class="logo">My AI Sweetheart</a>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Account</a></li>
+            </ul>
+        </header>
+        <section>
+            <img src="images/stars.png" id="stars">
+            <img src="images/heart.png" id="heart">
+            <img src="images/city_background.png" id="city">
+            <h2 id="text">Your Ideal Boyfriend Is Waiting</h2>
+            <a href="#sec" id="btn">Create Boyfriend</a>
+        </section>
+        <div class="container">
+            <div class="wrapper">
+                <img src="images/aibf_lq_1.png" id="bf1">
+                <img src="images/aibf_lq_2.png" id="bf2">
+                <img src="images/aibf_lq_3.png" id="bf3">
+                <img src="images/aibf_lq_4.png" id="bf4">
+                <img src="images/aibf_lq_5.png" id="bf5">
+                <img src="images/aibf_lq_6.png" id="bf6">
+                <img src="images/aibf_lq_7.png" id="bf7">
+                <img src="images/aibf_lq_8.png" id="bf8">
+                <img src="images/aibf_lq_9.png" id="bf9">
+                <img src="images/aibf_lq_10.png" id="bf10">
+            </div>
+        </div>
+        <div class="sec" id="sec">
+            <h2>Your Boyfriend Is Waiting For You</h2>
+            <p>UWOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOGH NEW BOYFRIEND UPDATE JUST DROPPED!!!!!!
+                UWOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOGH NEW BOYFRIEND UPDATE JUST DROPPED!!!!!!
+                UWOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOGH NEW BOYFRIEND UPDATE JUST DROPPED!!!!!!
+                UWOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOGH NEW BOYFRIEND UPDATE JUST DROPPED!!!!!!
+                UWOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOGH NEW BOYFRIEND UPDATE JUST DROPPED!!!!!!
+                UWOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOGH NEW BOYFRIEND UPDATE JUST DROPPED!!!!!!<br>
+                Boyfriend Contacts List Goes Here<br>
+                Boyfriend Contacts List Goes Here<br>
+                Boyfriend Contacts List Goes Here<br>
+                Boyfriend Contacts List Goes Here<br>
+                Boyfriend Contacts List Goes Here<br>
+                Boyfriend Contacts List Goes Here<br>
+                Boyfriend Contacts List Goes Here<br>
+            </p>
+        </div>
+        <script>
+            let stars = document.getElementById('stars');
+            let heart = document.getElementById('heart');
+            let city = document.getElementById('city');
+            let text = document.getElementById('text');
+            let btn = document.getElementById('btn');
+            let header = document.querySelector('header');
+
+            window.addEventListener('scroll', function()
+            {
+                let value = window.scrollY;
+                stars.style.left = value * 0.25 + 'px';
+                heart.style.top = value * 1.05 + 'px';
+                city.style.top = value * 0.5 + 'px';
+                text.style.marginRight = value * 4 + 'px';
+                text.style.marginTop = value * 1.5 + 'px';
+                btn.style.marginTop = value * 1.5 + 'px';
+                header.style.top = value * 0.5 + 'px';
+            })
+        </script>
+    </body>
+</html>

@@ -5,7 +5,7 @@ const chatInput = document.querySelector(".chat-input textarea");
 const sendChatBtn = document.querySelector(".chat-input span");
 
 let userMessage = null; // Variable to store user's message
-const API_KEY = "ASK BRANDON FOR API KEY";
+const API_KEY = "Ask Brandon For API Key Before Use";
 const inputInitHeight = chatInput.scrollHeight;
 
 const createChatLi = (message, className) => {
@@ -34,7 +34,7 @@ const generateResponse = (chatElement) => {
         body: JSON.stringify({
             model: "gpt-4-1106-preview",
             //model: "gpt-3.5-turbo",
-            messages: [{role: "system", content: "Roleplay as my boyfriend."},
+            messages: [{role: "system", content: "Roleplay as my boyfriend. Respond with at most 2 sentences."},
                         {role: "user", content: userMessage}],
         })
     }
