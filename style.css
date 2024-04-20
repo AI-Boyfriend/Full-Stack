@@ -129,97 +129,97 @@ section img#heart
 {
     0%
     {
-        transform: translateX(62%);
+        transform: translateX(25%);
     }
     1%
     {
-        transform: translateX(33%);
+        transform: translateX(12%);
     }
     10%
     {
-        transform: translateX(28%);
+        transform: translateX(7%);
     }
     12%
     {
-        transform: translateX(-20%);
+        transform: translateX(-88%);
     }
     20%
     {
-        transform: translateX(-25%);
+        transform: translateX(-93%);
     }
     22%  
     {
-        transform: translateX(-71%);
+        transform: translateX(-188%);
     }
     30%
     {
-        transform: translateX(-76%);
+        transform: translateX(-193%);
     }
     32%
     {
-        transform: translateX(-124%);
+        transform: translateX(-288%);
     }
     40%
     {
-        transform: translateX(-129%);
+        transform: translateX(-293%);
     }
     42%
     {
-        transform: translateX(-177%);
+        transform: translateX(-388%);
     }
     50%
     {
-        transform: translateX(-182%);
+        transform: translateX(-393%);
     }
     52%
     {
-        transform: translateX(-230%);
+        transform: translateX(-488%);
     }
     60%
     {
-        transform: translateX(-235%);
+        transform: translateX(-493%);
     }
     62%
     {
-        transform: translateX(-283%);
+        transform: translateX(-588%);
     }
     70%
     {
-        transform: translateX(-288%);
+        transform: translateX(-593%);
     }
     72%
     {
-        transform: translateX(-336%);
+        transform: translateX(-688%);
     }
     80%
     {
-        transform: translateX(-341%);
+        transform: translateX(-693%);
     }
     82%
     {
-        transform: translateX(-389%);
+        transform: translateX(-788%);
     }
     90%
     {
-        transform: translateX(-394%);
+        transform: translateX(-793%);
     }
     92%
     {
-        transform: translateX(-442%);
+        transform: translateX(-888%);
     }
     99%
     {
-        transform: translateX(-447%);
+        transform: translateX(-893%);
     }
     100%
     {
-        transform: translateX(-480%);
+        transform: translateX(-988%);
     }
 }
 
 .wrapper img
 {
-    scale: 0.35;
+    scale: 0.5;
     width: 100%;
 }
 

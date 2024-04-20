@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+*
+
+body
+{
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: linear-gradient(#2b1055,#8097de);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppons', sans-serif;
+}
+
+.slider
+{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.item
+{
+    position: absolute;
+    width: 300px;
+    height: 450px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    transition: 0.5s;
+    left: 35%;
+    top: 0;
+}
+
+#next, #prev
+{
+    position: absolute;
+    top: 40%;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    font-size: 10em;
+    font-family: monospace;
+    font-weight: bold;
+    left: 50px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#next
+{
+    left: unset;
+    right: 50px;
+}
+
+#next:hover
+{
+    transform: scale(1.25);
+}
+
+#prev:hover
+{
+    transform: scale(1.25);
+}
+
+#toChat
+{
+    text-decoration: none;
+    position: absolute;
+    display: inline-block;
+    width: 90%;
+    height: 10%;
+    bottom: 5%;
+    left: 50%;
+    color: #000;
+    border-radius: 30px;
+    padding: 8px 30px;
+    background: #fff;
+    font-size: 1.5em;
+    font-family: 'Poppons', sans-serif;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+#toChat:hover
+{
+    transform: scale(1.05);
+    background: linear-gradient(#2b1055,#8097de);
+    color: #fff;
+}
