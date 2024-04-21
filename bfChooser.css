@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
 *
+{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppons', sans-serif;
+    scroll-behavior: smooth;
+}
 
 body 
 {
@@ -10,17 +17,67 @@ body
     overflow: hidden;
 }
 
+header
+{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+
+header .logo
+{
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header ul
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li
+{
+    list-style: none;
+    margin-left: 20px;
+}
+
+header ul li a
+{
+    text-decoration: none;
+    padding: 6px 15px;
+    color: #fff;
+    border-radius: 20px;
+}
+
+header ul li a:hover,
+header ul li a.active
+{
+    background: #fff;
+    color: #2b1055
+}
+
 #title 
 {
     position: absolute;
-    top: 5%;
+    top: 25%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
     color: white;
     font-family: 'Poppins', sans-serif;
     font-size: 2rem;
-    z-index: 10;
 }
 
 #title h1 
@@ -67,5 +124,29 @@ body
     object-fit: cover;
     object-position: 100% center;
     transform-origin: bottom;
-    transition: transform 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+}
+
+#container {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#btn {
+    display: inline-block;
+    background: transparent;
+    border: none;
+}
+
+#btn img {
+    width: 100px;
+    height: auto;
+    transition: 0.5s;
+}
+
+#btn:hover img {
+    filter: invert(50%) sepia(100%) hue-rotate(290deg) saturate(500%) drop-shadow(0 6px 0 white);
+    transform: scale(1.25);
 }

@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
 *
+{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppons', sans-serif;
+    scroll-behavior: smooth;
+}
+
 
 body
 {
@@ -11,6 +19,57 @@ body
     justify-content: center;
     align-items: center;
     font-family: 'Poppons', sans-serif;
+}
+
+header
+{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+
+header .logo
+{
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header ul
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li
+{
+    list-style: none;
+    margin-left: 20px;
+}
+
+header ul li a
+{
+    text-decoration: none;
+    padding: 6px 15px;
+    color: #fff;
+    border-radius: 20px;
+}
+
+header ul li a:hover,
+header ul li a.active
+{
+    background: #fff;
+    color: #2b1055
 }
 
 .slider
@@ -30,7 +89,7 @@ body
     border-radius: 10px;
     padding: 20px;
     transition: 0.5s;
-    left: 35%;
+    left: 40%;
     top: 0;
 }
 
@@ -47,6 +106,7 @@ body
     left: 50px;
     cursor: pointer;
     transition: 0.5s;
+    z-index: 10;
 }
 
 #next
@@ -65,28 +125,91 @@ body
     transform: scale(1.25);
 }
 
-#toChat
+/*
+---------------------------------------------------------------------------------------------------------------------------------
+INPUT FIELD BOYFRIEND NAME
+---------------------------------------------------------------------------------------------------------------------------------
+*/
+
+.inputBox
 {
-    text-decoration: none;
     position: absolute;
-    display: inline-block;
-    width: 90%;
-    height: 10%;
-    bottom: 5%;
-    left: 50%;
-    color: #000;
-    border-radius: 30px;
-    padding: 8px 30px;
+    bottom: 20px;
+    width: 250px;
+}
+
+.inputBox input
+{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(0,0,0,0.5);
     background: #fff;
-    font-size: 1.5em;
-    font-family: 'Poppons', sans-serif;
-    font-weight: bold;
+    border-radius: 5px;
+    outline: none;
+    color:#000;
+    font-size: 1em;
     transition: 0.5s;
 }
 
-#toChat:hover
+.inputBox span
 {
-    transform: scale(1.05);
-    background: linear-gradient(#2b1055,#8097de);
-    color: #fff;
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: rgba(0,0,0,0.5);
+    transition: 0.5s;
+}
+
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span
+{
+    color: #4f69e7;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.65em;
+    padding: 0 10px;
+    background: #fff;
+    border-left: 1px solid #4f69e7;
+    border-right: 1px solid #4f69e7;
+    letter-spacing: 0.2em;
+}
+
+.inputBox input:valid,
+.inputBox input:focus
+{
+    border: 1px solid #4f69e7;
+}
+
+/*
+---------------------------------------------------------------------------------------------------------------------------------
+BUTTON TO CHAT WITH BOYFRIEND
+---------------------------------------------------------------------------------------------------------------------------------
+*/
+
+#toChat {
+    position: absolute;
+    width: 200px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px; /* Adjust bottom spacing as needed */
+    color: #000;
+    border-radius: 30px;
+    background: #fff;
+    font-size: 1.25em;
+    font-family: 'Poppins', sans-serif; /* Correct the font family name */
+    font-weight: bold;
+    text-align: center; /* Center the text horizontally */
+    line-height: 50px; /* Adjust line height to vertically center text */
+    transition: 0.5s;
+    z-index: 1; /* Ensure button stays above the prev/next buttons */
+}
+
+#toChat:hover {
+    letter-spacing: 0.05em;
+    transform: scale(1.05) translateX(-50%);
+    background: #fff;
+    color: #000;
+    box-shadow: 0 0 35px #0d88f5;
 }

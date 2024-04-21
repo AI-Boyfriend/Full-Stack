@@ -1,8 +1,11 @@
 const track = document.getElementById("image-track");
 const bftrack = document.getElementById("bf-track");
 const bf = document.querySelectorAll('bf-track .image');
+const confirmBtn = document.getElementById('btn');
 
 const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
+
+let indexInRange = -1;
 
 window.onload = function() {
   const mouseDelta = parseFloat(track.dataset.mouseDownAt),
@@ -52,27 +55,34 @@ const handleOnMove = e => {
     }, { duration: 1200, fill: "forwards" });
   }
 
-  let indexInRange = -1;
-
   for(const [index, image] of Array.from(bftrack.getElementsByClassName("image")).entries()) {
       const offset = index * 11 - 50;
       const individualPercentage = nextPercentage + offset;
 
-      if (individualPercentage >= -55 && individualPercentage <= -45) 
+      if (individualPercentage >= -56 && individualPercentage <= -45) 
       {
         indexInRange = index;
         image.style.transform = "scale(1.5)";
+        image.style.filter = "drop-shadow(10px 0 0px white)";
       } 
       else 
       {
         image.style.transform = "scale(1)";
+        image.style.filter = "none";
       }
 
       image.animate({
           objectPosition: `${100 + individualPercentage}% center`
       }, { duration: 1200, fill: "forwards" });
   }
+}
 
+confirmBtn.onclick = function()
+{
+  if(indexInRange != -1)
+  {
+    document.location.href = "bfCreator.html";
+  }
 }
 
 window.onmousedown = e => handleOnDown(e);
