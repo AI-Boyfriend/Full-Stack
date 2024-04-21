@@ -3,6 +3,7 @@ My AI Sweetheart Web App (Boyfriend Edition)
 
 Lead PM: Brandon Leho
 
+-------------------------------------------------------
 
 Front End:
 
@@ -14,6 +15,8 @@ Sean Solomon
 
 Jeremy Luu
 
+-------------------------------------------------------
+
 Back End:
 
 Brandon Leho (Back End PM)
@@ -23,7 +26,6 @@ Miguel Sierra
 Nicholas Ramirez-Ornelas
 
 Juan Salas
-
 
 -------------------------------------------------------
 
