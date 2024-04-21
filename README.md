@@ -36,3 +36,15 @@ First design for message UI
 Home Page Design
 
 ![AIBoyfriendHomePageSample-MadewithClipchamp-ezgif com-optimize](https://github.com/AI-Boyfriend/Full-Stack/assets/89223038/47de3582-d02b-47ab-a4d7-f2edd464759e)
+
+-------------------------------------------------------
+
+Updated Home Page
+
+![2024-04-2017-04-47-ezgif com-optimize](https://github.com/AI-Boyfriend/Full-Stack/assets/89223038/f8c2d353-d2e5-4f34-8a28-d41b02b9c2d0)
+
+-------------------------------------------------------
+
+Boyfriend Selector Page
+
+![2024-04-2017-04-47-ezgif com-optimize (1)](https://github.com/AI-Boyfriend/Full-Stack/assets/89223038/552258c7-cc01-494c-ba43-a508a76d451b)
