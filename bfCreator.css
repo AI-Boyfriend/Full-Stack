@@ -148,6 +148,7 @@ BUTTON TO CHAT WITH BOYFRIEND
     background: #fff;
     font-size: 1.25em;
     font-family: 'Poppins', sans-serif; /* Correct the font family name */
+    text-decoration: none;
     font-weight: bold;
     text-align: center; /* Center the text horizontally */
     line-height: 50px; /* Adjust line height to vertically center text */

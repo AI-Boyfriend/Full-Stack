@@ -2,7 +2,7 @@ let items = document.querySelectorAll('.slider .item');
 let next = document.getElementById('next');
 let prev = document.getElementById('prev');
 
-let active = 5;
+let active = 0;
 function loadShow()
 {
     let stt = 0;
