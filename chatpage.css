@@ -204,7 +204,7 @@ body, html {
 }
 .boyfriend-image {
     flex: 30%; /* Adjust size ratio for the image column */
-    background: url(boyfriendDemo.jpg) no-repeat center center;
+    background: url(images/boyfriendDemo.jpg) no-repeat center center;
     background-size: cover;
     position: relative;
 }

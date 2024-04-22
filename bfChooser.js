@@ -1,7 +1,7 @@
 const track = document.getElementById("image-track");
 const bftrack = document.getElementById("bf-track");
 const bf = document.querySelectorAll('bf-track .image');
-const confirmBtn = document.getElementById('btn');
+const confirmBtn = document.getElementById('choosebtn');
 
 const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
 

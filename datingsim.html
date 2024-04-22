@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Create Your Boyfriend</title>
+        <link rel="stylesheet" type="text/css" href="datingsim.css">
+    </head>
+    <body>
+        <div class="intro">
+            <img>
+        </div>
+        <div class="intro-text">
+            <span>It's so nice to finally meet you</span>
+        </div>
+        <header>
+            <a href="home.html" class="logo">My AI Sweetheart</a>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Account</a></li>
+            </ul>
+        </header>
+
+        <div class="background">
+            <img src="images/ddlcbg_hq.png" id="bg">
+        </div>
+        <div class="bf-img">
+            <img src="images/aibf_lq_1.png" id="bf">
+        </div>
+
+        <div class="container">
+            <div class="input-recorder">
+                <button id="show-user-btn"><span><</span></button>
+                <div class="input-msg" id="input-msg">
+                    <!-- User messages will be appended here -->
+                </div>
+            </div>
+            <div class="chat-container">
+                <div class="bf-name" id="bf-name">
+                    <span>Boyfriend 1</span>
+                </div>
+                <div class="chat-box" id="chat-box">
+                    <!-- Messages will be appended here -->
+                </div>
+            </div>
+            <div class="input-container">
+                <input type="text" id="user-input" placeholder="Talk to your boyfriend...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+
+        <script src="datingsim.js"></script>
+    </body>
+</html>
