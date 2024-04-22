@@ -53,6 +53,6 @@ Boyfriend Selector Page
 
 -------------------------------------------------------
 
-Animation for when the user starts their first chat with a boyfriend
+Animation for when the user starts their first chat with a boyfriend with dating sim UI
 
 ![AI Boyfriend Dating Sim Sample](https://github.com/AI-Boyfriend/Full-Stack/assets/89223038/d2a9a22b-4206-4212-893b-d38fafa6bb48)
