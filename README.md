@@ -50,3 +50,9 @@ Updated Home Page
 Boyfriend Selector Page
 
 ![2024-04-2017-04-47-ezgif com-optimize (1)](https://github.com/AI-Boyfriend/Full-Stack/assets/89223038/552258c7-cc01-494c-ba43-a508a76d451b)
+
+-------------------------------------------------------
+
+Animation for when the user starts their first chat with a boyfriend
+
+![AI Boyfriend Dating Sim Sample](https://github.com/AI-Boyfriend/Full-Stack/assets/89223038/d2a9a22b-4206-4212-893b-d38fafa6bb48)
