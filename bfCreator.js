@@ -43,3 +43,112 @@ prev.onclick = function()
     active = active - 1 >= 0 ? active - 1 : active;
     loadShow();
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll('.personalities button');
+    let selectedButtons = []; // Array to store the IDs of selected buttons
+
+    buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            // If the clicked button is already selected, remove it from the array
+            if (button.classList.contains('active')) {
+                button.classList.remove('active');
+                selectedButtons = selectedButtons.filter(id => id !== button.id);
+            } else {
+                // If the maximum number of selected buttons (3) is reached, return
+                if (selectedButtons.length >= 3) {
+                    return;
+                }
+
+                // Otherwise, add the button ID to the array and mark it as selected
+                button.classList.add('active');
+                selectedButtons.push(button.id);
+            }
+
+            // Log the selected buttons for testing
+            console.log(selectedButtons);
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll('.talk button');
+    let selectedButtons = []; // Array to store the IDs of selected buttons
+
+    buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            // If the clicked button is already selected, remove it from the array
+            if (button.classList.contains('active')) {
+                button.classList.remove('active');
+                selectedButtons = selectedButtons.filter(id => id !== button.id);
+            } else {
+                // If the maximum number of selected buttons (3) is reached, return
+                if (selectedButtons.length >= 3) {
+                    return;
+                }
+
+                // Otherwise, add the button ID to the array and mark it as selected
+                button.classList.add('active');
+                selectedButtons.push(button.id);
+            }
+
+            // Log the selected buttons for testing
+            console.log(selectedButtons);
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll('.hobbies button');
+    let selectedButtons = []; // Array to store the IDs of selected buttons
+
+    buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            // If the clicked button is already selected, remove it from the array
+            if (button.classList.contains('active')) {
+                button.classList.remove('active');
+                selectedButtons = selectedButtons.filter(id => id !== button.id);
+            } else {
+                // If the maximum number of selected buttons (3) is reached, return
+                if (selectedButtons.length >= 3) {
+                    return;
+                }
+
+                // Otherwise, add the button ID to the array and mark it as selected
+                button.classList.add('active');
+                selectedButtons.push(button.id);
+            }
+
+            // Log the selected buttons for testing
+            console.log(selectedButtons);
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const buttons = document.querySelectorAll('.emotion button');
+    let selectedButtons = []; // Array to store the IDs of selected buttons
+
+    buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            // If the clicked button is already selected, remove it from the array
+            if (button.classList.contains('active')) {
+                button.classList.remove('active');
+                selectedButtons = selectedButtons.filter(id => id !== button.id);
+            } else {
+                // If the maximum number of selected buttons (3) is reached, return
+                if (selectedButtons.length >= 3) {
+                    return;
+                }
+
+                // Otherwise, add the button ID to the array and mark it as selected
+                button.classList.add('active');
+                selectedButtons.push(button.id);
+            }
+
+            // Log the selected buttons for testing
+            console.log(selectedButtons);
+        });
+    });
+});
+
