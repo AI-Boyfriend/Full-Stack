@@ -1,24 +1,22 @@
-const chatbox = document.querySelector(".chatbox");
-const chatInput = document.querySelector(".chat-input textarea");
-const sendChatBtn = document.querySelector(".chat-input span");
+const chatbox = document.querySelector(".chat-container .chat-box");
+const inputRecorder = document.querySelector(".input-recorder .input-msg");
+const chatInput = document.querySelector(".input-container textarea");
+const sendChatBtn = document.querySelector(".input-container span");
 
 let userMessage = null; // Variable to store user's message
-const API_KEY = "sk-proj-Uc6PmHEa9JIaLxjvElGET3BlbkFJNhAQHyXHvfIdcabowuBk";
+const API_KEY = "ask brandon for api key";
 const inputInitHeight = chatInput.scrollHeight;
 
 const createChatLi = (message, className) => {
     // Create a chat <li> element with passed message and className
-    const chatLi = document.createElement("li");
+    const chatLi = document.createElement("p");
     chatLi.classList.add("chat", `${className}`);
-    let chatContent = className === "outgoing" ? `<p></p>` : `<span class="material-symbols-outlined">smart_toy</span><p></p>`;
-    chatLi.innerHTML = chatContent;
-    chatLi.querySelector("p").textContent = message;
+    chatLi.textContent = message;
     return chatLi; // return chat <li> element
 }
 
-const generateResponse = (chatElement) => {
+const generateResponse = (userMessage) => {
     const API_URL = "https://api.openai.com/v1/chat/completions";
-    const messageElement = chatElement.querySelector("p");
 
     // Define the properties and message for the API request
     const requestOptions = {
@@ -35,34 +33,62 @@ const generateResponse = (chatElement) => {
         })
     }
 
-    // Send POST request to API, get response and set the reponse as paragraph text
-    fetch(API_URL, requestOptions).then(res => res.json()).then(data => {
-        messageElement.textContent = data.choices[0].message.content.trim();
-    }).catch(() => {
-        messageElement.classList.add("error");
-        messageElement.textContent = "Oops! Something went wrong. Please try again.";
-    }).finally(() => chatbox.scrollTo(0, chatbox.scrollHeight));
+    // Send POST request to API, get response and append the response to the chatbox
+    fetch(API_URL, requestOptions)
+    .then(res => res.json())
+    .then(data => {
+        // Clear existing messages in the chat container
+        chatbox.innerHTML = "";
+
+        // Create a <p> element to hold the incoming message
+        const chatLi = document.createElement("li");
+        chatLi.classList.add("chat", "incoming");
+        const chatParagraph = document.createElement("p");
+        chatLi.appendChild(chatParagraph);
+        chatbox.appendChild(chatLi);
+
+        // Split the message into individual characters
+        const characters = data.choices[0].message.content.trim().split('');
+        let i = 0;
+
+        // Create a function to append characters one by one with a delay
+        const textSpeed = () => {
+            if (i < characters.length) {
+                chatParagraph.textContent += characters[i];
+                chatbox.scrollTo(0, chatbox.scrollHeight);
+                i++;
+                setTimeout(textSpeed, 10); // Adjust the delay between characters (in milliseconds)
+            }
+        }
+
+        // Start the typewriter effect
+        textSpeed();
+    })
+    .catch(() => {
+        const errorMessage = "[Connection Issue] Womp Womp... Your boyfriend is having problems :(";
+        const chatLi = createChatLi(errorMessage, "error");
+        chatbox.appendChild(chatLi);
+        chatbox.scrollTo(0, chatbox.scrollHeight);
+    });
 }
+
+
 
 const handleChat = () => {
     userMessage = chatInput.value.trim(); // Get user entered message and remove extra whitespace
-    if(!userMessage) return;
+    if (!userMessage) return;
 
     // Clear the input textarea and set its height to default
     chatInput.value = "";
     chatInput.style.height = `${inputInitHeight}px`;
 
-    // Append the user's message to the chatbox
-    chatbox.appendChild(createChatLi(userMessage, "outgoing"));
-    chatbox.scrollTo(0, chatbox.scrollHeight);
-    
-    setTimeout(() => {
-        // Display "Thinking..." message while waiting for the response
-        const incomingChatLi = createChatLi("...", "incoming");
-        chatbox.appendChild(incomingChatLi);
-        chatbox.scrollTo(0, chatbox.scrollHeight);
-        generateResponse(incomingChatLi);
-    }, 600);
+    // Append the user's message to the input recorder
+    const userMessageLi = createChatLi(userMessage, "outgoing");
+    inputRecorder.innerHTML = "";
+    inputRecorder.appendChild(userMessageLi);
+
+    // Generate response and append it to the chatbox
+    generateResponse(userMessage);
 }
 
 chatInput.addEventListener("input", () => {
@@ -80,4 +106,21 @@ chatInput.addEventListener("keydown", (e) => {
     }
 });
 
+var showText = function (target, message, index, interval) {
+    if (index < message. length) {
+        $(target).append(message[index++]);
+        setTimeout(function () {showText(target, message, index, interval); }, interval);
+    }
+}
+
 sendChatBtn.addEventListener("click", handleChat);
+
+const inputRecorderContainer = document.getElementById("input-recorder");
+const showUserBtn = document.getElementById("show-user-btn");
+
+let isClosed = false;
+
+showUserBtn.addEventListener("click", () => {
+    isClosed = !isClosed;
+    inputRecorderContainer.classList.toggle("closed", isClosed);
+});

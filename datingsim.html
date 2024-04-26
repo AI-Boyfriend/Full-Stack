@@ -29,7 +29,7 @@
         </div>
 
         <div class="container">
-            <div class="input-recorder">
+            <div class="input-recorder" id="input-recorder">
                 <button id="show-user-btn"><span><</span></button>
                 <div class="input-msg" id="input-msg">
                     <!-- User messages will be appended here -->
@@ -37,15 +37,15 @@
             </div>
             <div class="chat-container">
                 <div class="bf-name" id="bf-name">
-                    <span>Boyfriend 1</span>
+                    <span>Tyrone</span>
                 </div>
                 <div class="chat-box" id="chat-box">
                     <!-- Messages will be appended here -->
                 </div>
             </div>
             <div class="input-container">
-                <input type="text" id="user-input" placeholder="Talk to your boyfriend...">
-                <button onclick="sendMessage()">Send</button>
+                <textarea placeholder="Talk to your boyfriend..." spellcheck="false" required></textarea>
+                <span id="send-btn" class="material-symbols-rounded">></span>
             </div>
         </div>
 

@@ -76,9 +76,9 @@ body
     flex-direction: column;
     justify-content: flex-end;
     min-height: 100vh;
-    --intro-length: 10s;
-    --intro: 5s;
-    --intro-bf: 6.5s;
+    --intro-length: .1s;
+    --intro: .1s;
+    --intro-bf: .1s;
 }
 
 .background
@@ -127,8 +127,7 @@ body
     z-index: 10;
 }
 
-.input-recorder
-{
+.input-recorder {
     background-image: linear-gradient(rgba(200, 200, 200, 0.90), rgba(105, 105, 228, 0.9));
     border-radius: 10px;
     border: 3px solid #073e8b;
@@ -138,12 +137,32 @@ body
     margin-bottom: 10px;
     margin-left: auto;
     margin-right: 0;
-    text-align: right;
+    position: relative; /* Add relative positioning */
+    display: flex; /* Use flexbox */
+    align-items: center; /* Center vertically */
+    justify-content: flex-end; /* Align items to the end (right side) */
+    font-size: 1.5em;
     animation: load-rec 3.5s ease-in var(--intro);
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
 }
 
-.input-recorder button
-{
+.input-recorder .input-msg {
+    margin-right: 5%;
+}
+
+.input-recorder.closed {
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.input-recorder.closed button {
+    opacity: 1; /* Override opacity to keep the button visible */
+}
+
+.input-recorder button {
+    position: absolute; /* Use absolute positioning */
+    top: 0; /* Position at the top */
+    right: 0; /* Position at the right */
     width: 5%;
     height: 40%;
     border-radius: 3px;
@@ -152,15 +171,20 @@ body
     color: #fff;
     font-weight: bold;
     cursor: pointer;
-    transform: translateY(-10px);
     z-index: 10;
+    transition: transform 0.5s; /* Add transition */
 }
+
 
 .input-recorder button span
 {
     display: inline-block;
     transform: rotate(-90deg);
     font-family: monospace;
+}
+
+.input-recorder.closed button {
+    transform: translateY(100%);
 }
 
 .bf-name
@@ -202,6 +226,8 @@ body
 
 .chat-box 
 {
+    font-size: 1.5em;
+    list-style: none;
     padding: 20px;
     height: 100%;
     overflow-y: auto;
@@ -220,33 +246,38 @@ body
     animation: load-input 2.5s ease-in var(--intro);
 }
 
-.input-container input[type="text"] 
+.input-container textarea
 {
+    resize: none;
     flex: 1;
     padding: 8px;
+    width: 100%;
     border: 3px solid #073e8b;
     border-radius: 5px;
+    font-size: 1.15em;
     outline: none;
 }
 
-.input-container button
-{
-    padding: 8px 15px;
-    margin-left: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
+.input-container span {
+    align-self: flex-end;
+    color: #724ae8;
+    background: #838383;
+    width: 3%;
+    justify-content: center;
+    border-radius: 10px;
     cursor: pointer;
-    outline: none;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1.5em;
+
 }
-
-.input-container button:hover 
-{
-    background-color: #0056b3;
+    .input-container textarea:valid ~ span {
+    color:#724ae8;
+    background: #fff;
 }
-
-
 
 .intro
 {
