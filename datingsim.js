@@ -123,4 +123,5 @@ let isClosed = false;
 showUserBtn.addEventListener("click", () => {
     isClosed = !isClosed;
     inputRecorderContainer.classList.toggle("closed", isClosed);
+    showUserBtn.classList.toggle("closed", isClosed);
 });
