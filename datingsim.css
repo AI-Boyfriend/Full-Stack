@@ -76,9 +76,9 @@ body
     flex-direction: column;
     justify-content: flex-end;
     min-height: 100vh;
-    --intro-length: .1s;
-    --intro: .1s;
-    --intro-bf: .1s;
+    --intro-length: 10s;
+    --intro: 5s;
+    --intro-bf: 6.5s;
 }
 
 .background
