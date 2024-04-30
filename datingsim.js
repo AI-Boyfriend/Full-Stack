@@ -4,7 +4,7 @@ const chatInput = document.querySelector(".input-container textarea");
 const sendChatBtn = document.querySelector(".input-container span");
 
 let userMessage = null; // Variable to store user's message
-const API_KEY = "ask-proj-CilULXD9SLRhOLVlZGZKT3BlbkFJXzLE8sRfuGiBnGKBhOR6";
+const API_KEY = "ask brandon for API key";
 const inputInitHeight = chatInput.scrollHeight;
 
 const createChatLi = (message, className) => {
@@ -125,3 +125,6 @@ showUserBtn.addEventListener("click", () => {
     inputRecorderContainer.classList.toggle("closed", isClosed);
     showUserBtn.classList.toggle("closed", isClosed);
 });
+
+import { name } from './bfCreator.js';
+console.log(name);
