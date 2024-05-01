@@ -3,26 +3,8 @@ const inputRecorder = document.querySelector(".input-recorder .input-msg");
 const chatInput = document.querySelector(".input-container textarea");
 const sendChatBtn = document.querySelector(".input-container span");
 
-
-var bfName = localStorage.getItem('boyfriendName');
-
-var spanElement = document.getElementById("bf-name").getElementsByTagName("span")[0];
-spanElement.innerHTML = bfName;
-
-var spanElement = document.getElementById("bf-name-bg").getElementsByTagName("span")[0];
-spanElement.innerHTML = bfName;
-
-var personalities = localStorage.getItem('personalities');
-var talk = localStorage.getItem('talk');
-var hobbies = localStorage.getItem('hobbies');
-var emotion = localStorage.getItem('emotion');
-
-var bfImageNew = localStorage.getItem('bfImage');
-var bfImage = document.getElementById("bf");
-bfImage.src = bfImageNew;
-
 let userMessage = null; // Variable to store user's message
-const API_KEY = "Ask Brandon For API Key";
+const API_KEY = "ask brandon for API key";
 const inputInitHeight = chatInput.scrollHeight;
 
 const createChatLi = (message, className) => {
@@ -46,9 +28,7 @@ const generateResponse = (userMessage) => {
         body: JSON.stringify({
             model: "gpt-4-1106-preview",
             //model: "gpt-3.5-turbo",
-            messages: [{role: "system", content: "Roleplay as my boyfriend. Your name is " + bfName + ". The user's name is Brandon. Your personalities are " 
-            + personalities + ". The ways you talk to the user are " + talk + ". The users hobbies are " + hobbies + ". Make conversations around their hobbies. "
-            + "The emotional supprt you give is " + emotion + ". Respond with at most 2 sentences."},
+            messages: [{role: "system", content: "Roleplay as my boyfriend. Respond with at most 2 sentences."},
                         {role: "user", content: userMessage}],
         })
     }
@@ -145,3 +125,6 @@ showUserBtn.addEventListener("click", () => {
     inputRecorderContainer.classList.toggle("closed", isClosed);
     showUserBtn.classList.toggle("closed", isClosed);
 });
+
+import { name } from './bfCreator.js';
+console.log(name);
