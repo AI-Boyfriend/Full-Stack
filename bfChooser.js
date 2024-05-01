@@ -64,6 +64,10 @@ const handleOnMove = e => {
         indexInRange = index;
         image.style.transform = "scale(1.5)";
         image.style.filter = "drop-shadow(10px 0 0px white)";
+        
+        const srcValue = image.getAttribute("src");
+        localStorage.setItem('bfImage', srcValue.toString())
+        //console.log(localStorage.getItem('bfImage'));
       } 
       else 
       {

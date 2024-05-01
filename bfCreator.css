@@ -40,6 +40,7 @@ body
     transition: 0.5s;
     left: 40%;
     top: 0;
+    overflow-y: auto;
 }
 
 #next, #prev
@@ -132,131 +133,49 @@ INPUT FIELD BOYFRIEND NAME
 
 /*
 ---------------------------------------------------------------------------------------------------------------------------------
-TOGGLE PERSONALITY
+TOGGLE BUTTONS
 ---------------------------------------------------------------------------------------------------------------------------------
 */
-.personalities
-{
-    overflow-y: auto;
-    bottom: 10px;
-    width: 90%;
-}
-
-.personalities button {
-    border-radius: 10px;
-    background-color: #f0f0f0; /* Change to your desired color */
-    color: #333; /* Change to your desired text color */
-    border: 1px solid #ccc; /* Change to your desired border style */
-    padding: 10px 20px; /* Adjust padding as needed */
-    margin: 5px; /* Adjust margin as needed */
-    cursor: pointer; /* Show cursor as pointer on hover */
-    outline: none; /* Remove default button outline */
-}
-
-.personalities button:hover {
-    background-color: #e0e0e0; /* Change to your desired hover color */
-}
-
-.personalities button.active {
-    background-color: #007bff; /* Change to your desired active color */
-    color: #fff; /* Change to your desired text color */
-}
-
-/*
----------------------------------------------------------------------------------------------------------------------------------
-TOGGLE TALK
----------------------------------------------------------------------------------------------------------------------------------
-*/
+.personalities, 
+.emotion, 
+.hobbies, 
 .talk
 {
-    overflow-y: auto;
     bottom: 10px;
     width: 90%;
 }
 
-.talk button {
-    border-radius: 10px;
-    background-color: #f0f0f0; /* Change to your desired color */
-    color: #333; /* Change to your desired text color */
-    border: 1px solid #ccc; /* Change to your desired border style */
-    padding: 10px 20px; /* Adjust padding as needed */
-    margin: 5px; /* Adjust margin as needed */
-    cursor: pointer; /* Show cursor as pointer on hover */
-    outline: none; /* Remove default button outline */
-}
-
-.talk button:hover {
-    background-color: #e0e0e0; /* Change to your desired hover color */
-}
-
-.talk button.active {
-    background-color: #007bff; /* Change to your desired active color */
-    color: #fff; /* Change to your desired text color */
-}
-
-/*
----------------------------------------------------------------------------------------------------------------------------------
-TOGGLE HOBBIES
----------------------------------------------------------------------------------------------------------------------------------
-*/
-.hobbies
-{
-    overflow-y: auto;
-    bottom: 10px;
-    width: 90%;
-}
-
-.hobbies button {
-    border-radius: 10px;
-    background-color: #f0f0f0; /* Change to your desired color */
-    color: #333; /* Change to your desired text color */
-    border: 1px solid #ccc; /* Change to your desired border style */
-    padding: 10px 20px; /* Adjust padding as needed */
-    margin: 5px; /* Adjust margin as needed */
-    cursor: pointer; /* Show cursor as pointer on hover */
-    outline: none; /* Remove default button outline */
-}
-
-.hobbies button:hover {
-    background-color: #e0e0e0; /* Change to your desired hover color */
-}
-
-.hobbies button.active {
-    background-color: #007bff; /* Change to your desired active color */
-    color: #fff; /* Change to your desired text color */
-}
-
-/*
----------------------------------------------------------------------------------------------------------------------------------
-TOGGLE EMOTION
----------------------------------------------------------------------------------------------------------------------------------
-*/
-.emotion
-{
-    overflow-y: auto;
-    bottom: 10px;
-    width: 90%;
-}
-
+.personalities button,
+.talk button,
+.hobbies button,
 .emotion button {
+    width: 115px;
+    height: 40px;
     border-radius: 10px;
-    background-color: #f0f0f0; /* Change to your desired color */
-    color: #333; /* Change to your desired text color */
-    border: 1px solid #ccc; /* Change to your desired border style */
-    padding: 10px 20px; /* Adjust padding as needed */
-    margin: 5px; /* Adjust margin as needed */
-    cursor: pointer; /* Show cursor as pointer on hover */
-    outline: none; /* Remove default button outline */
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    outline: none;
 }
 
+.personalities button:hover,
+.talk button:hover,
+.hobbies button:hover,
 .emotion button:hover {
-    background-color: #e0e0e0; /* Change to your desired hover color */
+    background-color: #e0e0e0;
 }
 
+.personalities button.active,
+.talk button.active,
+.hobbies button.active,
 .emotion button.active {
-    background-color: #007bff; /* Change to your desired active color */
-    color: #fff; /* Change to your desired text color */
+    background-color: #007bff;
+    color: #fff;
 }
+
 
 /*
 ---------------------------------------------------------------------------------------------------------------------------------
