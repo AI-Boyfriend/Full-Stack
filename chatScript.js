@@ -1,11 +1,11 @@
 //const chatbotToggler = document.querySelector(".chatbot-toggler");
 //const closeBtn = document.querySelector(".close-btn");
-const chatbox = document.querySelector(".chatbox");
-const chatInput = document.querySelector(".chat-input textarea");
-const sendChatBtn = document.querySelector(".chat-input span");
+const chatbox = document.querySelector(".chat-container .chat-box");
+const chatInput = document.querySelector(".input-container textarea");
+const sendChatBtn = document.querySelector(".input-container span");
 
 let userMessage = null; // Variable to store user's message
-const API_KEY = "sk-proj-M4qjC3SNhEOdhI6RGRklT3BlbkFJYn7Jv8lxcflF6xObebJN";
+const API_KEY = "sk-proj-Uc6PmHEa9JIaLxjvElGET3BlbkFJNhAQHyXHvfIdcabowuBk";
 const inputInitHeight = chatInput.scrollHeight;
 
 const createChatLi = (message, className) => {
@@ -42,7 +42,7 @@ const generateResponse = (chatElement) => {
         messageElement.textContent = data.choices[0].message.content.trim();
     }).catch(() => {
         messageElement.classList.add("error");
-        messageElement.textContent = "Womp Womp... Your boyfriend is having problems :( [Connection Issue]";
+        messageElement.textContent = "Oops! Something went wrong. Please try again.";
     }).finally(() => chatbox.scrollTo(0, chatbox.scrollHeight));
 }
 

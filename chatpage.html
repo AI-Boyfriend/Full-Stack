@@ -1,41 +1,59 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - www.codingnepalweb.com -->
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>AI Boyfriend</title>
-    <link rel="stylesheet" href="chatpage.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google Fonts Link For Icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
-    <script src="chatScript.js" defer></script>
-  </head>
+<html lang="en">
+
+<head>
+  <title>Create Your Boyfriend</title>
+  <link rel="stylesheet" type="text/css" href="chatpage.css">
+</head>
+
 <body>
-  <div class="navbar">
-      <a href="aibots.html">AI Bots</a>
-      <a href="account.html">My Account</a>
-      <a href="settings.html">Settings</a>
-      <a href="about.html">About</a>
+  <div class="intro">
+    <img>
   </div>
-    <div class="main-contentchat">
-        <div class="boyfriend-image">
-            
-        </div>
-        <div class="chatbot">
-          <ul class="chatbox">
-            <li class="chat incoming">
-              <!-- <span class="material-symbols-outlined">smart_toy</span> -->
-            </li>
-          </ul>
-          <div class="chat-input">
-            <textarea placeholder="Talk to your boyfriend..." spellcheck="false" required></textarea>
-            <span id="send-btn" class="material-symbols-rounded">send</span>
-          </div>
-        </div>
+  <div class="intro-text">
+    <span>It's so nice to finally meet you</span>
+  </div>
+  <header>
+    <a href="home.html" class="logo">My AI Sweetheart</a>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Settings</a>
+        <ul class="dropdown-content">
+          <li><a href="datingsim.html">Dating Sim UI</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Account</a></li>
+    </ul>
+  </header>
+
+  <div class="background">
+    <img src="images/ddlcbg_hq.png" id="bg">
+  </div>
+  <div class="bf-img">
+    <img src="images/aibf_lq_10.png" id="bf">
+  </div>
+
+  <div class="container">
+    <div class="chat-container">
+      <div class="bf-name-bg" id="bf-name-bg">
+        <span>Tyrone</span>
       </div>
-  </body>
+      <div class="bf-name" id="bf-name">
+        <span>Tyrone</span>
+      </div>
+      <div class="chat-box" id="chat-box">
+        <!-- Messages will be appended here -->
+      </div>
+    </div>
+    <div class="input-container">
+      <textarea placeholder="Talk to your boyfriend..." spellcheck="false" required></textarea>
+      <span id="send-btn" class="material-symbols-rounded">></span>
+    </div>
+  </div>
+</body>
+<script type="module" src="bfCreator.js"></script>
+<script type="module" src="chatScript.js"></script>
+
 </html>
-
-
-
