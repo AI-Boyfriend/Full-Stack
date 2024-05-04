@@ -3,8 +3,26 @@ const inputRecorder = document.querySelector(".input-recorder .input-msg");
 const chatInput = document.querySelector(".input-container textarea");
 const sendChatBtn = document.querySelector(".input-container span");
 
+
+var bfName = localStorage.getItem('boyfriendName');
+
+var spanElement = document.getElementById("bf-name").getElementsByTagName("span")[0];
+spanElement.innerHTML = bfName;
+
+var spanElement = document.getElementById("bf-name-bg").getElementsByTagName("span")[0];
+spanElement.innerHTML = bfName;
+
+var personalities = localStorage.getItem('personalities');
+var talk = localStorage.getItem('talk');
+var hobbies = localStorage.getItem('hobbies');
+var emotion = localStorage.getItem('emotion');
+
+var bfImageNew = localStorage.getItem('bfImage');
+var bfImage = document.getElementById("bf");
+bfImage.src = bfImageNew;
+
 let userMessage = null; // Variable to store user's message
-const API_KEY = "ask brandon for API key";
+const API_KEY = "ASK BRANDON FOR API KEY";
 const inputInitHeight = chatInput.scrollHeight;
 
 const createChatLi = (message, className) => {
@@ -14,6 +32,9 @@ const createChatLi = (message, className) => {
     chatLi.textContent = message;
     return chatLi; // return chat <li> element
 }
+
+let conversationMemory = [];
+const MAX_MEMORY_SIZE = 5;
 
 const generateResponse = (userMessage) => {
     const API_URL = "https://api.openai.com/v1/chat/completions";
@@ -28,8 +49,11 @@ const generateResponse = (userMessage) => {
         body: JSON.stringify({
             model: "gpt-4-1106-preview",
             //model: "gpt-3.5-turbo",
-            messages: [{role: "system", content: "Roleplay as my boyfriend. Respond with at most 2 sentences."},
-                        {role: "user", content: userMessage}],
+            messages: [{role: "system", content: "Roleplay as my boyfriend. Your name is " + bfName + ". The user's name is Brandon. Your personalities are " 
+            + personalities + ". The ways you talk to the user are " + talk + ". The users hobbies are " + hobbies + ". Make conversations around their hobbies. "
+            + "The emotional supprt you give is " + emotion + ". Respond with at most 2 sentences."},
+            {role: "assistant", content: conversationMemory.join('')},
+            {role: "user", content: userMessage}],
         })
     }
 
@@ -37,6 +61,15 @@ const generateResponse = (userMessage) => {
     fetch(API_URL, requestOptions)
     .then(res => res.json())
     .then(data => {
+
+        conversationMemory.push(userMessage);
+        conversationMemory.push(data.choices[0].message.content);
+        
+
+        if (conversationMemory.length > 2 * MAX_MEMORY_SIZE) {
+            conversationMemory.splice(0, conversationMemory.length - 2 * MAX_MEMORY_SIZE);
+        }
+        //console.log(conversationMemory);
         // Clear existing messages in the chat container
         chatbox.innerHTML = "";
 
@@ -125,6 +158,3 @@ showUserBtn.addEventListener("click", () => {
     inputRecorderContainer.classList.toggle("closed", isClosed);
     showUserBtn.classList.toggle("closed", isClosed);
 });
-
-import { name } from './bfCreator.js';
-console.log(name);

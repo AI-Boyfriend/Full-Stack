@@ -89,6 +89,7 @@ confirmBtn.onclick = function()
   }
 }
 
+
 window.onmousedown = e => handleOnDown(e);
 
 window.ontouchstart = e => handleOnDown(e.touches[0]);
