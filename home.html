@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Home Page</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="home.css">
     </head>
     <body>
         <header>
@@ -14,16 +14,13 @@
                 <li><a href="#">Account</a></li>
             </ul>
         </header>
+
         <section>
             <img src="images/stars.png" id="stars" draggable="false">
             <a href="#sec"><img src="images/heart.png" id="heart" /></a>
             <img src="images/city_background.png" id="city" draggable="false">
             <h2 id="text">Your Ideal Boyfriend Is Waiting</h2>
             <a href="bfChooser.html" id="btn">Create Boyfriend</a>
-
-            <!-- <div class="heart-wrapper">
-                <a href="#sec"><img src="images/heart.png" id="heart" /></a>
-            </div> -->
         </section>
         <div class="container">
             <div class="wrapper">
@@ -40,76 +37,22 @@
             </div>
         </div>
         <div class="sec" id="sec">
-            
-
-
-
-
-
-
-
             <h3>Messages</h3>
             <div class=box>
-                <div class="list">
+                <div class="list" href="datingsim.html?id=your_bot_id_here">
                     <div class="imgBx">
                         <img src="images/aibf_lq_1.png">
                     </div>
                     <div class="content">
                         <h4>Boyfriend 1</h4>
                         <p>Babe, that sounds like an intense adrenaline rush, but let's find a safe and realistic way to get that feeling, like maybe skydiving or taking a flight lesson together? Your safety is always my top priority.</p>
-                    </div>
-                </div>
-                <div class="list">
-                    <div class="imgBx">
-                        <img src="images/aibf_lq_2.png">
-                    </div>
-                    <div class="content">
-                        <h4>Boyfriend 2</h4>
-                        <p>Wanna come over and play smash? I've been practicing my skills for that game and I would love to test them out on you...</p>
-                    </div>
-                </div>
-                <div class="list">
-                    <div class="imgBx">
-                        <img src="images/aibf_lq_5.png">
-                    </div>
-                    <div class="content">
-                        <h4>Boyfriend 3</h4>
-                        <p>GYAAAAAATTTTT</p>
-                    </div>
-                </div>
-                <div class="list">
-                    <div class="imgBx">
-                        <img src="images/aibf_lq_6.png">
-                    </div>
-                    <div class="content">
-                        <h4>Boyfriend 4</h4>
-                        <p>mmmm, horny... You look terrific. You look delicious. I wanna snack on you tonight, you're pretty around the mouth. I got admit something: I am getting hot around you... Just like the way your body looks... you're turning us all on around here, I'm going nuts. I wanna get in that... You know what I'm saying? You're looking hot... H-O-T, okay? Man, I've been walkin' around here and somethin' smells good I don't know if it's my burrito or your vagine but it's turnin' me on... I wanna get wet with you. I had to rub one out earlier thinkin' about you. You look real trim down there, real tight. Get me wet downtown. I can almost taste it right here in front of me. I wanna dine on you tonight. Table for two huh? Save me a bite. Good enough to eat I just wanna get in that! Man, you're sexy. Gettin' me horny! I was sittin' in my office thinkin' about tongue kissin' ya all night long. I wanna bury my bald head between those rolls! Naughty me... I wanna make a film of me and you... I wanna hop on top of you; and get goofy! You're turning me on... you get that? smooch smooch I wanna get my tongue everywhere in there. Okay? Pee on ya. Yeah I wanna get fuckin' dirty. Roll around in some trash with ya. You take care of yourself down there? You clean? ... I am gonna take you apart ... I'd pet you like a little cat. Mmmm. Gonna roll you around and tar and feather you. I wanna fuck you. I'm a married man, but I want you. I wanna give you a son. I'm not gonna use protection. But I'm very small. Listen, I can't maintain an erection, but I can cum. I'll perform oral on you, okay? I'm gonna do it slow, it's gonna take all night. And I don't ask for anything in return...</p>
+                        <span class="opt-btn">
+                            <ion-icon name="close-circle"></ion-icon>
+                        </span>
                     </div>
                 </div>
             </div>
-
-
-
         </div>
-        <script>
-            let stars = document.getElementById('stars');
-            let heart = document.getElementById('heart');
-            let city = document.getElementById('city');
-            let text = document.getElementById('text');
-            let btn = document.getElementById('btn');
-            let header = document.querySelector('header');
-
-            window.addEventListener('scroll', function()
-            {
-                let value = window.scrollY;
-                stars.style.left = value * 0.25 + 'px';
-                heart.style.top = value * 1.05 + 'px';
-                city.style.top = value * 0.5 + 'px';
-                text.style.marginRight = value * 4 + 'px';
-                text.style.marginTop = value * 1.5 + 'px';
-                btn.style.marginTop = value * 1.5 + 'px';
-                header.style.top = value * 0.5 + 'px';
-            })
-        </script>
+        <script src="home.js"></script>
     </body>
 </html>

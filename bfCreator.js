@@ -7,8 +7,12 @@ var emotion = "";
 function getBoyfriendName() {
     var inputElement = document.getElementById('bfName');
     boyfriendName = inputElement.value;
+    var words = boyfriendName.split(/[\s']/);
+    var capitalizedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
+    boyfriendName = capitalizedWords.join(' ');
     localStorage.setItem('boyfriendName', boyfriendName);
 }
+
 
 let items = document.querySelectorAll('.slider .item');
 let next = document.getElementById('next');
@@ -174,3 +178,106 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    var toChatLink = document.getElementById("toChat");
+    if (toChatLink) { // Check if element exists before adding event listener
+        toChatLink.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            addChatBot(newBotId, boyfriendName, {
+                personalities: personalities,
+                talk: talk,
+                hobbies: hobbies,
+                emotion: emotion
+            }, localStorage.getItem("bfImage"));
+
+            window.location.href = `datingsim.html?id=${newBotId}`;
+        });
+    }
+});
+
+
+
+/*
+---------------------------------------------------------------------------------------------------------------
+CHAT DATA MANAGER
+---------------------------------------------------------------------------------------------------------------
+*/
+
+const loadChatData = () => {
+    const data = localStorage.getItem("chatData");
+    return data ? JSON.parse(data) : null;
+}
+
+const saveChatData = (data) => {
+    localStorage.setItem("chatData", JSON.stringify(data));
+    console.log(localStorage.getItem("chatData"));
+}
+
+let chatData = loadChatData() || {
+    botName: bfName,
+    botSettings: {
+        personalities: personalities,
+        talk: talk,
+        hobbies: hobbies,
+        emotion: emotion
+    },
+    conversations: []
+};
+
+// Function to add a new chat bot and save to localStorage
+const addChatBot = (botId, botName, botSettings, botImage) => {
+    chatData[botId] = {
+        botName,
+        botSettings,
+        botImage,
+        conversations: []
+    };
+    saveChatData(chatData);
+}
+
+// Function to generate a unique bot ID
+const generateUniqueBotId = () => {
+    let id = "bot";
+    let count = 1;
+
+    // Find the lowest available ID
+    while (chatData[id + count]) {
+        count++;
+    }
+
+    // If there's a gap in the sequence, use the lowest available ID
+    if (count <= Object.keys(chatData).length) {
+        return id + count;
+    }
+
+    // Otherwise, generate a new ID as usual
+    while (chatData[id + count]) {
+        count++;
+    }
+
+    return id + count;
+}
+
+// Example usage to generate a unique bot ID
+const newBotId = generateUniqueBotId();
+
+
+// Function to delete a chat bot by its ID
+const deleteChatBot = (botId) => {
+    if (chatData[botId]) {
+        delete chatData[botId]; // Remove the bot entry from chatData object
+        saveChatData(chatData); // Save the updated chatData to localStorage
+        return true; // Indicate successful deletion
+    }
+    return false; // Indicate bot not found
+}
+
+// Example usage to delete a chat bot
+/* const deleted = deleteChatBot("bot1");
+if (deleted) {
+    console.log("Chat bot deleted successfully.");
+} else {
+    console.log("Chat bot not found.");
+} */

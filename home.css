@@ -1,0 +1,401 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+*
+{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppons', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body
+{
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: linear-gradient(#0b011b,#031752);
+}
+
+header
+{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+
+header .logo
+{
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header ul
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li
+{
+    list-style: none;
+    margin-left: 20px;
+}
+
+header ul li a
+{
+    text-decoration: none;
+    padding: 6px 15px;
+    color: #fff;
+    border-radius: 20px;
+}
+
+header ul li a:hover,
+header ul li a.active
+{
+    background: #fff;
+    color: #2b1055
+}
+
+section
+{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+section::before
+{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height:100px;
+    background: linear-gradient(to top, #1c0522, transparent);
+    z-index: 1000;
+}
+
+section img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+img#city
+{
+    pointer-events: none;
+}
+
+img#heart 
+{
+    height: auto;
+    scale: 0.1;
+    transform: translateY(-350%);
+    cursor: pointer;
+}
+
+img#heart:hover 
+{
+    filter: invert(50%) sepia(100%) hue-rotate(290deg) saturate(500%);
+    transform: translateY(-350%) scale(1);
+    animation: heart 1s infinite;
+}
+
+@keyframes heart {
+    0% {
+        filter: invert(50%) sepia(100%) hue-rotate(290deg) saturate(500%);
+        transform: translateY(-350%) scale(1);
+        filter: drop-shadow(0 0 0 rgba(255, 82, 82, 0.7)); /* Add drop-shadow filter */
+    }
+    70% {
+        filter: invert(50%) sepia(100%) hue-rotate(290deg) saturate(500%);
+        transform: translateY(-350%) scale(1.1);
+        filter: drop-shadow(0 0 500px rgba(255, 82, 82, 0)); /* Remove drop-shadow filter */
+    }
+    100% {
+        transform: translateY(-350%) scale(1);
+    }
+}
+
+
+.container
+{
+    width: 125%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 80%;
+    left: 50%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.wrapper
+{
+    width: 100%;
+    scale: 2;
+    display: flex;
+    animation: slide 40s ease-in-out infinite;
+}
+
+@keyframes slide
+{
+    0%
+    {
+        transform: translateX(25%);
+    }
+    1%
+    {
+        transform: translateX(12%);
+    }
+    10%
+    {
+        transform: translateX(7%);
+    }
+    12%
+    {
+        transform: translateX(-88%);
+    }
+    20%
+    {
+        transform: translateX(-93%);
+    }
+    22%  
+    {
+        transform: translateX(-188%);
+    }
+    30%
+    {
+        transform: translateX(-193%);
+    }
+    32%
+    {
+        transform: translateX(-288%);
+    }
+    40%
+    {
+        transform: translateX(-293%);
+    }
+    42%
+    {
+        transform: translateX(-388%);
+    }
+    50%
+    {
+        transform: translateX(-393%);
+    }
+    52%
+    {
+        transform: translateX(-488%);
+    }
+    60%
+    {
+        transform: translateX(-493%);
+    }
+    62%
+    {
+        transform: translateX(-588%);
+    }
+    70%
+    {
+        transform: translateX(-593%);
+    }
+    72%
+    {
+        transform: translateX(-688%);
+    }
+    80%
+    {
+        transform: translateX(-693%);
+    }
+    82%
+    {
+        transform: translateX(-788%);
+    }
+    90%
+    {
+        transform: translateX(-793%);
+    }
+    92%
+    {
+        transform: translateX(-888%);
+    }
+    99%
+    {
+        transform: translateX(-893%);
+    }
+    100%
+    {
+        transform: translateX(-988%);
+    }
+}
+
+.wrapper img
+{
+    scale: 0.5;
+    width: 100%;
+}
+
+#text
+{
+    position: absolute;
+    color: #fff;
+    white-space: nowrap;
+    font-size: 5.5vw;
+    z-index: 9;
+}
+
+#btn
+{
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 30px;
+    border-radius: 40px;
+    background: #fff;
+    color: #2b1055;
+    font-size: 1.5em;
+    z-index: 9;
+    transform: translateY(100px);
+    transition: color 0.5s;
+    transition: transform 0.5s;
+}
+
+#btn:hover
+{
+    transition: 0.5s;
+    background: #ea95d9;
+    color: #fff;
+    transform: translateY(100px) scale(1.05);
+}
+
+.sec
+{
+    position: relative;
+    padding: 100px;
+    background-color: #1c0522;
+}
+
+.sec h2
+{
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.sec p
+{
+    font-size: 1.2em;
+    color: #fff;
+}
+
+/*
+---------------------------------------------------------------------------------------------------------------------------------
+MESSAGES LIST
+---------------------------------------------------------------------------------------------------------------------------------
+*/
+
+.sec h3
+{
+    font-size: 1.75em;
+    color:#fff;
+    margin-bottom: 20;;
+}
+
+.sec .box
+{
+    position: relative;
+    min-width: 350px;
+}
+
+.sec .box .list
+{
+    position: relative;
+    display: flex;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.5s;
+    background: #0c011f;
+}
+
+.sec .box .list:hover
+{
+    box-shadow: -10px 20px 35px rgba(0,0,0,0.15);
+    transform: scale(1.05);
+    z-index: 10000;
+}
+
+.sec .box .list .imgBx
+{
+    position: relative;
+    min-width: 60px;
+    min-height: 60px;
+    border-radius: 10px;
+    margin-right: 10px;
+    transition: 0.5s;
+}
+
+.sec .box .list .imgBx img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sec .box .list:hover .imgBx
+{
+    transform: scale(2.5);
+}
+
+.sec .box .list .content
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    white-space: nowrap;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.sec .box .list .content h4
+{
+    line-height: 1.2em;
+    font-size: 1.25em;
+    font-weight: 600;
+}
+
+.sec .box .list .content p
+{
+    line-height: 0.75em;
+    color: #fff;
+}
+
+.sec .box .list span 
+{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.3em;
+}

@@ -1,5 +1,3 @@
-//const chatbotToggler = document.querySelector(".chatbot-toggler");
-//const closeBtn = document.querySelector(".close-btn");
 const chatbox = document.querySelector(".chat-container .chatbox");
 const chatcontainer = document.querySelector(".chat-container");
 const chatInput = document.querySelector(".input-container textarea");
@@ -23,7 +21,7 @@ var bfImage = document.getElementById("bf");
 bfImage.src = bfImageNew;
 
 let userMessage = null; // Variable to store user's message
-const API_KEY = "ASK BRANDON FOR API KEY";
+const API_KEY = "broodno";
 const inputInitHeight = chatInput.scrollHeight;
 
 const createChatLi = (message, className) => {
@@ -116,5 +114,94 @@ chatInput.addEventListener("keydown", (e) => {
 });
 
 sendChatBtn.addEventListener("click", handleChat);
-//closeBtn.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
-//chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
+
+
+
+
+
+
+/*
+---------------------------------------------------------------------------------------------------------------
+CHAT DATA MANAGER
+---------------------------------------------------------------------------------------------------------------
+*/
+
+
+/* const saveChatData = (data) => {
+    localStorage.setItem("chatData", JSON.stringify(data));
+} */
+
+const loadChatData = () => {
+    const data = localStorage.getItem("chatData");
+    return data ? JSON.parse(data) : null;
+}
+
+let chatData = loadChatData() || {
+    botName: bfName,
+    botSettings: {
+        personalities: personalities,
+        talk: talk,
+        hobbies: hobbies,
+        emotion: emotion
+    },
+    conversations: []
+};
+
+// Function to add a new chat bot and save to localStorage
+const addChatBot = (botId, botName, botSettings, botImage) => {
+    chatData[botId] = {
+        botName,
+        botSettings,
+        botImage,
+        conversations: []
+    };
+    saveChatData(chatData);
+}
+
+// Example usage to add a new chat bot
+// Call this function whenever a new chat bot is created
+addChatBot("bot1", "Bot 1", {
+    personalities: "Default",
+    talk: "Default",
+    hobbies: "Default",
+    emotion: "Default"
+}, "path/to/bot1/image.jpg");
+
+// Function to update bot settings of a specific bot and save to localStorage
+const updateBotSettings = (botId, newSettings) => {
+    if (!chatData[botId]) return; // Bot not found
+    chatData[botId].botSettings = { ...chatData[botId].botSettings, ...newSettings };
+    saveChatData(chatData);
+}
+
+// Function to update bot image of a specific bot and save to localStorage
+const updateBotImage = (botId, newImage) => {
+    if (!chatData[botId]) return; // Bot not found
+    chatData[botId].botImage = newImage;
+    saveChatData(chatData);
+}
+
+// Example usage to update bot settings of a specific bot
+// Call this function whenever bot settings are changed
+updateBotSettings("bot1", {
+    personalities: "New personalities",
+    talk: "New talk style",
+    hobbies: "New hobbies",
+    emotion: "New emotional support"
+});
+// Now you can access and manipulate chatData object as needed,
+// and the changes will be automatically saved to localStorage.
+
+// Function to generate a unique bot ID
+const generateUniqueBotId = () => {
+    let id = "bot"; // Initial ID prefix
+    let count = 1; // Initial numeric suffix
+    while (chatData[id + count]) {
+        count++;
+    }
+    return id + count;
+}
+
+// Example usage to generate a unique bot ID
+const newBotId = generateUniqueBotId();
+
