@@ -149,16 +149,18 @@ TOGGLE BUTTONS
 .talk button,
 .hobbies button,
 .emotion button {
-    width: 115px;
-    height: 40px;
+    width: 120px;
+    height: 30px;
     border-radius: 10px;
     background-color: #f0f0f0;
     color: #333;
     border: 1px solid #ccc;
-    padding: 10px 20px;
+    padding: 10px 10px;
     margin: 5px;
     cursor: pointer;
     outline: none;
+    justify-content: center;
+    align-items: center;
 }
 
 .personalities button:hover,

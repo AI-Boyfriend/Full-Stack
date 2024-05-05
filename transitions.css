@@ -1,0 +1,27 @@
+.transition-1, .transition-2
+{
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    bottom: 0;
+    z-index: 1000000000000000000;
+    visibility: visible;
+    background-color: black;
+    transition: 0.5s ease-out;
+}
+
+.transition-1.is-active
+{
+    left: 0;
+}
+
+.transition-1.leave
+{
+    left: 100%;
+}
+
+.transition-2.is-active
+{
+    left: 0px;
+}

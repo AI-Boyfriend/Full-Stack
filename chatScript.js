@@ -20,6 +20,32 @@ var bfImageNew = localStorage.getItem('bfImage');
 var bfImage = document.getElementById("bf");
 bfImage.src = bfImageNew;
 
+const transition_el_1 = document.querySelector('.transition-1');
+const transition_el_2 = document.querySelector('.transition-2');
+
+window.onload = () => {
+    setTimeout(() => {
+        transition_el_1.classList.replace('is-active', 'leave');
+    })
+}
+
+
+let logo = document.getElementById('logo');
+let home = document.getElementById('home');
+
+const handleTransition = (e) => {
+    e.preventDefault();
+
+    transition_el_2.classList.add('is-active');
+
+    setTimeout(() => {
+        window.location.href = `home.html`;
+    }, 500);
+};
+
+logo.addEventListener('click', handleTransition);
+home.addEventListener('click', handleTransition);
+
 let botId;
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -38,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const fetchChatDataForBot = (botId) => {
         const data = localStorage.getItem("chatData");
         const chatData = data ? JSON.parse(data) : null;
+        console.log(chatData);
         return chatData && chatData[botId] ? chatData[botId] : null;
     };
 
@@ -124,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     let userMessage = null; // Variable to store user's message
-    const API_KEY = "ASK BRANDON LMAOOOOOOOOOOOOOOOOOOO";
+    const API_KEY = "WOMP WOMP THE API KEY DOESNT SEEM TO BE HERE. I WONDER WHERE IT COULD BE.";
     const inputInitHeight = chatInput.scrollHeight;
 
     const generateResponse = (userMessage) => {
@@ -247,14 +274,17 @@ document.addEventListener("DOMContentLoaded", function() {
         saveChatData(chatData);
     }
 
-    // Assuming you have access to the current bot ID in your JavaScript code
-    const currentBotId = botId; // Replace this with your actual current bot ID
+    let toDate = document.getElementById('toDate');
 
-    // Find the link element for the Text Messaging UI
-    const textMessagingLink = document.querySelector('.dropdown-content a[href="datingsim.html"]');
-
-    // Update the href attribute of the link to include the current bot ID
-    textMessagingLink.setAttribute('href', `datingsim.html?id=${currentBotId}`);
+    toDate.addEventListener('click', e => {
+        e.preventDefault();
+    
+        transition_el_2.classList.add('is-active');
+    
+        setTimeout(() => {
+            window.location.href = `datingsim.html?id=${botId}`;
+        }, 500);
+    })
 });
 
 
@@ -308,62 +338,3 @@ let chatData = loadChatData() || {
     },
     conversations: []
 };
-
-// Function to add a new chat bot and save to localStorage
-const addChatBot = (botId, botName, botSettings, botImage) => {
-    chatData[botId] = {
-        botName,
-        botSettings,
-        botImage,
-        conversations: []
-    };
-    saveChatData(chatData);
-}
-
-// Example usage to add a new chat bot
-// Call this function whenever a new chat bot is created
-addChatBot("bot1", "Bot 1", {
-    personalities: "Default",
-    talk: "Default",
-    hobbies: "Default",
-    emotion: "Default"
-}, "path/to/bot1/image.jpg");
-
-// Function to update bot settings of a specific bot and save to localStorage
-const updateBotSettings = (botId, newSettings) => {
-    if (!chatData[botId]) return; // Bot not found
-    chatData[botId].botSettings = { ...chatData[botId].botSettings, ...newSettings };
-    saveChatData(chatData);
-}
-
-// Function to update bot image of a specific bot and save to localStorage
-const updateBotImage = (botId, newImage) => {
-    if (!chatData[botId]) return; // Bot not found
-    chatData[botId].botImage = newImage;
-    saveChatData(chatData);
-}
-
-// Example usage to update bot settings of a specific bot
-// Call this function whenever bot settings are changed
-updateBotSettings("bot1", {
-    personalities: "New personalities",
-    talk: "New talk style",
-    hobbies: "New hobbies",
-    emotion: "New emotional support"
-});
-// Now you can access and manipulate chatData object as needed,
-// and the changes will be automatically saved to localStorage.
-
-// Function to generate a unique bot ID
-const generateUniqueBotId = () => {
-    let id = "bot"; // Initial ID prefix
-    let count = 1; // Initial numeric suffix
-    while (chatData[id + count]) {
-        count++;
-    }
-    return id + count;
-}
-
-// Example usage to generate a unique bot ID
-const newBotId = generateUniqueBotId();
-

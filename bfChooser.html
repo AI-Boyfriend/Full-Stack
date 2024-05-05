@@ -4,12 +4,17 @@
         <title>Create Your Boyfriend</title>
         <link rel="stylesheet" type="text/css" href="bfChooser.css">
         <link rel="stylesheet" type="text/css" href="home.css">
+        <link rel="stylesheet" type="text/css" href="transitions.css">
     </head>
     <body>
+
+        <div class="transition transition-1 is-active"></div>
+        <div class="transition transition-2"></div>
+        
         <header>
-            <a href="home.html" class="logo">My AI Sweetheart</a>
+            <a id="logo" href="home.html" class="logo">My AI Sweetheart</a>
             <ul>
-                <li><a href="home.html">Home</a></li>
+                <li><a id="home" href="home.html">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Settings</a></li>
                 <li><a href="#">Account</a></li>
@@ -21,25 +26,25 @@
         <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
             <img class="image" src="https://images.unsplash.com/photo-1524781289445-ddf8f5695861?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" />
             <img class="image" src="https://images.unsplash.com/photo-1610194352361-4c81a6a8967e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80" draggable="false" />
-            <img class="image" src="https://images.unsplash.com/photo-1618202133208-2907bebba9e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" />
-            <img class="image" src="https://images.unsplash.com/photo-1495805442109-bf1cf975750b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" />
-            <img class="image" src="https://images.unsplash.com/photo-1548021682-1720ed403a5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" />
+            <img class="image" src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80" draggable="false" />
+            <img class="image" src="https://images.unsplash.com/photo-1613346945084-35cccc812dd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1759&q=80" draggable="false" />
+            <img class="image" src="https://images.unsplash.com/photo-1714602679012-9d34aca206ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" />
             <img class="image" src="https://images.unsplash.com/photo-1496753480864-3e588e0269b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2134&q=80" draggable="false" />
             <img class="image" src="https://images.unsplash.com/photo-1613346945084-35cccc812dd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1759&q=80" draggable="false" />
-            <img class="image" src="https://images.unsplash.com/photo-1516681100942-77d8e7f9dd97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" />
-            <img class="image" src="https://images.unsplash.com/photo-1613346945084-35cccc812dd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1759&q=80" draggable="false" />
-            <img class="image" src="https://images.unsplash.com/photo-1516681100942-77d8e7f9dd97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" />
+            <img class="image" src="https://images.unsplash.com/photo-1516926133025-705ee504386d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1759&q=80" draggable="false" />
+            <img class="image" src="https://images.unsplash.com/photo-1495805442109-bf1cf975750b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" />
+            <img class="image" src="https://images.unsplash.com/photo-1714807241573-e843a80d081a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1759&q=80" draggable="false" />
         </div>
 
         <div id="bf-track" data-mouse-down-at="0" data-prev-percentage="0">
             <img class="image" src="images/aibf_lq_1.png" draggable="false" />
-            <img class="image" src="images/aibf_lq_2.png" draggable="false" />
-            <img class="image" src="images/aibf_lq_3.png" draggable="false" />
-            <img class="image" src="images/aibf_lq_4.png" draggable="false" />
+            <img class="image" src="images/aibf_lq_14.png" draggable="false" />
+            <img class="image" src="images/aibf_lq_13.png" draggable="false" />
+            <img class="image" src="images/aibf_lq_17.png" draggable="false" />
             <img class="image" src="images/aibf_lq_5.png" draggable="false" />
             <img class="image" src="images/aibf_lq_6.png" draggable="false" />
-            <img class="image" src="images/aibf_lq_7.png" draggable="false" />
-            <img class="image" src="images/aibf_lq_8.png" draggable="false" />
+            <img class="image" src="images/aibf_lq_16.png" draggable="false" />
+            <img class="image" src="images/aibf_lq_11.png" draggable="false" />
             <img class="image" src="images/aibf_lq_9.png" draggable="false" />
             <img class="image" src="images/aibf_lq_10.png" draggable="false" />
         </div>

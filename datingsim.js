@@ -22,7 +22,31 @@ bfImage.src = bfImageNew;
 
 
 
+const transition_el_1 = document.querySelector('.transition-1');
+const transition_el_2 = document.querySelector('.transition-2');
 
+window.onload = () => {
+    setTimeout(() => {
+        transition_el_1.classList.replace('is-active', 'leave');
+    })
+}
+
+
+let logo = document.getElementById('logo');
+let home = document.getElementById('home');
+
+const handleTransition = (e) => {
+    e.preventDefault();
+
+    transition_el_2.classList.add('is-active');
+
+    setTimeout(() => {
+        window.location.href = `home.html`;
+    }, 500);
+};
+
+logo.addEventListener('click', handleTransition);
+home.addEventListener('click', handleTransition);
 
 
 
@@ -44,6 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const fetchChatDataForBot = (botId) => {
         const data = localStorage.getItem("chatData");
         const chatData = data ? JSON.parse(data) : null;
+        console.log(chatData);
         return chatData && chatData[botId] ? chatData[botId] : null;
     };
 
@@ -122,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     let userMessage = null; // Variable to store user's message
-    const API_KEY = "ASK BRANDON FOR API KEY";
+    const API_KEY = "LMAOOOOOOOOOOO U DONT HAVE THE API KEY";
     const inputInitHeight = chatInput.scrollHeight;
 
     const generateResponse = (userMessage) => {
@@ -271,14 +296,18 @@ document.addEventListener("DOMContentLoaded", function() {
         conversations: []
     };
 
-    // Assuming you have access to the current bot ID in your JavaScript code
-    const currentBotId = botId; // Replace this with your actual current bot ID
 
-    // Find the link element for the Text Messaging UI
-    const textMessagingLink = document.querySelector('.dropdown-content a[href="chatpage.html"]');
+    let toText = document.getElementById('toText');
 
-    // Update the href attribute of the link to include the current bot ID
-    textMessagingLink.setAttribute('href', `chatpage.html?id=${currentBotId}`);
+    toText.addEventListener('click', e => {
+        e.preventDefault();
+    
+        transition_el_2.classList.add('is-active');
+    
+        setTimeout(() => {
+            window.location.href = `chatpage.html?id=${botId}`;
+        }, 500);
+    })
 
      // If there are messages, remove the animation class from the elements
      if (chatData[botId].conversations.length == 0) {

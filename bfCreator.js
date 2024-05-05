@@ -1,3 +1,30 @@
+const transition_el_1 = document.querySelector('.transition-1');
+const transition_el_2 = document.querySelector('.transition-2');
+
+window.onload = () => {
+    setTimeout(() => {
+        transition_el_1.classList.replace('is-active', 'leave');
+    })
+}
+
+let logo = document.getElementById('logo');
+let home = document.getElementById('home');
+
+const handleTransition = (e) => {
+    e.preventDefault();
+
+    transition_el_2.classList.add('is-active');
+
+    setTimeout(() => {
+        window.location.href = `home.html`;
+    }, 500);
+};
+
+logo.addEventListener('click', handleTransition);
+home.addEventListener('click', handleTransition);
+
+
+
 var boyfriendName = "";
 var personalities = "";
 var talk = "";
@@ -57,9 +84,58 @@ function loadShow() {
 
 loadShow();
 
+function validateCurrentSlide() {
+    const currentSlide = items[active];
+    const input = currentSlide.querySelector('input');
+
+    if (input && input.value.trim() === "") {
+        alert("Please fill out the required field.");
+        return false;
+    }
+
+    // Example for the personalities slide
+    if (currentSlide.querySelector('.personalities')) {
+        const selectedButtons = currentSlide.querySelectorAll('.personalities button.active');
+        if (selectedButtons.length === 0) {
+            alert("Please select at least one personality.");
+            return false;
+        }
+    }
+
+    if (currentSlide.querySelector('.talk')) {
+        const selectedButtons = currentSlide.querySelectorAll('.talk button.active');
+        if (selectedButtons.length === 0) {
+            alert("Please select at least one expression.");
+            return false;
+        }
+    }
+
+    if (currentSlide.querySelector('.hobbies')) {
+        const selectedButtons = currentSlide.querySelectorAll('.hobbies button.active');
+        if (selectedButtons.length === 0) {
+            alert("Please select at least one hobby.");
+            return false;
+        }
+    }
+
+    if (currentSlide.querySelector('.emotion')) {
+        const selectedButtons = currentSlide.querySelectorAll('.emotion button.active');
+        if (selectedButtons.length === 0) {
+            alert("Please select an emotion support option.");
+            return false;
+        }
+    }
+
+    return true;
+}
+
 if (next) {
     next.onclick = function()
     {
+        if (!validateCurrentSlide()) {
+            return;
+        }
+
         active = active + 1 < items.length ? active + 1 : active;
         loadShow();
     
@@ -192,7 +268,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 emotion: emotion
             }, localStorage.getItem("bfImage"));
 
-            window.location.href = `datingsim.html?id=${newBotId}`;
+            transition_el_2.classList.add('is-active');
+
+            setTimeout(() => {
+                window.location.href = `datingsim.html?id=${newBotId}`;
+            }, 500);
         });
     }
 });

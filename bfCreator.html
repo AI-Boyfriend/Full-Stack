@@ -4,12 +4,17 @@
         <title>Create Your Boyfriend</title>
         <link rel="stylesheet" type="text/css" href="bfCreator.css">
         <link rel="stylesheet" type="text/css" href="home.css">
+        <link rel="stylesheet" type="text/css" href="transitions.css">
     </head>
     <body>
+
+        <div class="transition transition-1 is-active"></div>
+        <div class="transition transition-2"></div>
+        
         <header>
-            <a href="home.html" class="logo">My AI Sweetheart</a>
+            <a id="logo" href="home.html" class="logo">My AI Sweetheart</a>
             <ul>
-                <li><a href="home.html">Home</a></li>
+                <li><a id="home" href="home.html">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Settings</a></li>
                 <li><a href="#">Account</a></li>
@@ -17,16 +22,16 @@
         </header>
         <div class="slider">
             <div class="item">
-                <h1>what's your boyfriend's name?</h1>
-                Choose ya bf's name
+                <h1>What's your boyfriend's name?</h1>
+                Choose your boyfriend's name
                 <div class="inputBox">
-                    <input type="text" id="bfName" required="required">
+                    <input type="text" id="bfName" required="required" maxlength="10" autocomplete="off">
                     <span>Boyfriend's Name</span>
                 </div>
             </div>
             <div class="item">
-                <h1>what's his personality like?</h1>
-                Choose ya bf's personality
+                <h1>What's his personality like?</h1>
+                Choose your boyfriend's personality <br>(up to 3 personalities)
                 <div class="personalities">
                     <button type="button" id="romantic-toggle">Romantic</button>
                     <button type="button" id="intellectual-toggle">Intellectual</button>
@@ -46,8 +51,8 @@
                 </div>
             </div>
             <div class="item">
-                <h1>how does he talk to you?</h1>
-                Choose how ya bf talks to u
+                <h1>How does he talk to you?</h1>
+                Choose how your boyfriend talks to you <br>(up to 2 expressions)
                 <div class="talk">
                     <button type="button" id="friendly-toggle">Friendly</button>
                     <button type="button" id="flirty-toggle">Flirty</button>
@@ -64,8 +69,8 @@
                 </div>
             </div>
             <div class="item">
-                <h1>what hobbies of yours does he know about?</h1>
-                Choose ya hobbies
+                <h1>What hobbies do you want your boyfriend to know?</h1>
+                Choose your hobbies (up to 3 hobbies)
                 <div class="hobbies">
                     <button type="button" id="reading-toggle">Reading</button>
                     <button type="button" id="writing-toggle">Writing</button>
@@ -85,8 +90,8 @@
                 </div>
             </div>
             <div class="item">
-                <h1>how much emotional support does he provide?</h1>
-                Choose ya bf's emotional support level idk
+                <h1>How much emotional support does your boyfriend provide?</h1>
+                Choose your boyfriend's emotional support (only one emotional support)
                 <div class="emotion">
                     <button type="button" id="listening-toggle">Listening</button>
                     <button type="button" id="encouragement-toggle">Encouragement</button>
@@ -101,14 +106,14 @@
                 </div>
             </div>
             <div class="item">
-                <h1>your boyfriend is ready to chat with you</h1>
-                WOOOOOOOOOOOOOOO YEEEEAAAAAAHHHHHHH BAAAAAAABY THIS IS THE MOMENT I'VE BEEN WAITING FOR
+                <h1>Your sweetheart is ready to chat with you!</h1>
+                Have Fun!
                 <a id="toChat">Start Chatting</a>
             </div>
-            <button id="next">></button>
-            <button id="prev"><</button>
+            <button id="next" onclick="prevSlide()">></button>
+            <button id="prev" onclick="nextSlide()"><</button>
         </div>
 
-        <script type="module" src="bfCreator.js"></script>
+        <script src="bfCreator.js"></script>
     </body>
 </html>

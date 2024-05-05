@@ -1,3 +1,25 @@
+const transition_el_1 = document.querySelector('.transition-1');
+const transition_el_2 = document.querySelector('.transition-2');
+
+window.onload = () => {
+    setTimeout(() => {
+        transition_el_1.classList.replace('is-active', 'leave');
+    })
+}
+
+let toChooser = document.getElementById("btn");
+
+toChooser.addEventListener('click', e => {
+    e.preventDefault();
+
+    transition_el_2.classList.add('is-active');
+
+    setTimeout(() => {
+        window.location.href = `bfChooser.html`;
+    }, 500);
+})
+
+
 const fetchChatData = () => {
     const data = localStorage.getItem("chatData");
     console.log(data);
@@ -85,26 +107,32 @@ const displayPreviousChats = () => {
         });
     }
 
-    // Add click event listener to each chat item after populating the botIds array
-    document.querySelectorAll('.list').forEach((item, index) => {
-        // Set the href attribute for each chat item using botIds array
-        item.setAttribute('href', `datingsim.html?id=${botIds[index]}`);
-        
-        // Add click event listener to each chat item
-        item.addEventListener('click', () => {
-            // Extract bot ID from href attribute
-            const botId = item.getAttribute('href').split('=')[1];
-            // Redirect user to chat page with the bot ID
-            window.location.href = `datingsim.html?id=${botId}`;
+    // Check if botIds array is empty
+    if (botIds.length === 0) {
+        secElement.querySelector(".box").innerHTML = "<p>No messages yet.</p>";
+    } else {
+        // Add click event listener to each chat item after populating the botIds array
+        document.querySelectorAll('.list').forEach((item, index) => {
+            // Set the href attribute for each chat item using botIds array
+            item.setAttribute('href', `datingsim.html?id=${botIds[index]}`);
+            
+            // Add click event listener to each chat item
+            item.addEventListener('click',e => {
+                e.preventDefault();
+                transition_el_2.classList.add('is-active');
+                const botId = item.getAttribute('href').split('=')[1];
+                setTimeout(() => {
+                    window.location.href = `datingsim.html?id=${botId}`;
+                }, 500);
+            });
         });
-    });
+    }
 };
+
 
 
 // Call the function to display previous chats
 displayPreviousChats();
-
-
 
 let stars = document.getElementById('stars');
 let heart = document.getElementById('heart');
@@ -139,34 +167,6 @@ function currentSlide(n)
     showSlides(slideIndex)
 }
 
-/* function showSlides(n)
-{
-    var i;
-    var slides = document.getElementsByClassName("slides");
-    var dots = document.getElementsByClassName("dot");
-    if(n > slides.length) 
-        slideIndex = 1;
-
-    if(n < 1)
-        slideIndex = slides.length;
-
-    for(i = 0; i < slides.length; i++)
-    {
-        slides[i].style.display = "none";
-    }
-
-    for(i = 0; i < dots.length; i++)
-    {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
-
-
-    setTimeout(showSlides, 2000);
-}
- */
-
 function showSlides(n)
 {
     var i;
@@ -180,5 +180,5 @@ function showSlides(n)
         slideIndex = 1;
     slides[slideIndex - 1].style.display = "block";
 
-    setTimeout(showSlides, 2000);
+    setTimeout(showSlides, 7000);
 }

@@ -141,7 +141,7 @@ img#heart:hover
     width: 125%;
     position: absolute;
     transform: translate(-50%,-50%);
-    top: 80%;
+    top: 75%;
     left: 50%;
     overflow: hidden;
     pointer-events: none;
@@ -427,7 +427,8 @@ NEWS
 {
     font-size: 1.75em;
     color:#fff;
-    margin-bottom: 20;
+    padding-left: 10%;
+    padding-bottom: 1%;
 }
 
 .news .slider-wrapper
@@ -447,6 +448,33 @@ NEWS
     vertical-align: middle;
 }
 
+#bfslide1 {
+    position:absolute;
+    transform: scale(0.75);
+    transform-origin: center;
+    top: -31%;
+    left: -75%;
+    z-index: 100;
+}
+
+#bfslide2 {
+    position:absolute;
+    transform: scale(0.75);
+    transform-origin: center;
+    top: -31%;
+    left: -72%;
+    z-index: 100;
+}
+
+#bfslide3 {
+    position:absolute;
+    transform: scale(0.75);
+    transform-origin: center;
+    top: -31%;
+    left: -72%;
+    z-index: 100;
+}
+
 .slideshow-container
 {
     max-width: 80%;
@@ -454,15 +482,85 @@ NEWS
     margin: auto;
 }
 
-.slides .text
+#text1
 {
+    font-size: 4.5rem;
     color: #f2f2f2;
-    font-size: 15px;
+    font-weight: bold;
     padding: 8px 12px;
     position: absolute;
     width: 100%;
-    text-align: center;
-    bottom: 8px;
+    text-align: right;
+    top: 8px;
+    right: 5%;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#subtext1
+{
+    font-size: 1.5rem;
+    color: #f2f2f2;
+    padding: 8px 12px;
+    position: absolute;
+    width: 64%;
+    text-align: right;
+    top: 13%;
+    right: 5%;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#text2
+{
+    font-size: 3.25rem;
+    color: #f2f2f2;
+    font-weight: bold;
+    padding: 8px 12px;
+    position: absolute;
+    width: 100%;
+    text-align: right;
+    top: 8px;
+    right: 5%;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#subtext2
+{
+    font-size: 1.5rem;
+    color: #f2f2f2;
+    padding: 8px 12px;
+    position: absolute;
+    width: 60%;
+    text-align: right;
+    top: 13%;
+    right: 5%;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#text3
+{
+    font-size: 3rem;
+    color: #f2f2f2;
+    font-weight: bold;
+    padding: 8px 12px;
+    position: absolute;
+    width: 70%;
+    text-align: right;
+    top: 8px;
+    right: 5%;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#subtext3
+{
+    font-size: 1.5rem;
+    color: #f2f2f2;
+    padding: 8px 12px;
+    position: absolute;
+    width: 60%;
+    text-align: right;
+    top: 17%;
+    right: 5%;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .fade

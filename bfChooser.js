@@ -7,11 +7,17 @@ const handleOnDown = e => {
   track.dataset.mouseDownAt = e.clientX;
   track.dataset.percentage = 0;
 }
-  
+
+const transition_el_1 = document.querySelector('.transition-1');
+const transition_el_2 = document.querySelector('.transition-2');
 
 let indexInRange = -1;
 
 window.onload = function() {
+  setTimeout(() => {
+    transition_el_1.classList.replace('is-active', 'leave');
+  })
+
   const mouseDelta = parseFloat(track.dataset.mouseDownAt),
         maxDelta = window.innerWidth / 2;
 
@@ -73,7 +79,7 @@ const handleOnMove = e => {
         
         const srcValue = image.getAttribute("src");
         localStorage.setItem('bfImage', srcValue.toString())
-        //console.log(localStorage.getItem('bfImage'));
+        console.log(localStorage.getItem('bfImage'));
       } 
       else 
       {
@@ -87,17 +93,39 @@ const handleOnMove = e => {
   }
 }
 
-confirmBtn.onclick = function()
-{
+confirmBtn.addEventListener('click', e => {
   if(indexInRange != -1)
   {
-    document.location.href = "bfCreator.html";
+    e.preventDefault();
+
+    transition_el_2.classList.add('is-active');
+
+    setTimeout(() => {
+        window.location.href = `bfCreator.html`;
+    }, 500);
   }
-}
+})
 
 if (indexInRange === -1) {
   confirmBtn.disabled = true;
 }
+
+let logo = document.getElementById('logo');
+let home = document.getElementById('home');
+
+const handleTransition = (e) => {
+    e.preventDefault();
+
+    transition_el_2.classList.add('is-active');
+
+    setTimeout(() => {
+        window.location.href = `home.html`;
+    }, 500);
+};
+
+logo.addEventListener('click', handleTransition);
+home.addEventListener('click', handleTransition);
+
 
 
 window.onmousedown = e => handleOnDown(e);
