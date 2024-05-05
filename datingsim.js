@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     let userMessage = null; // Variable to store user's message
-    const API_KEY = "bradon";
+    const API_KEY = "ASK BRANDON FOR API KEY";
     const inputInitHeight = chatInput.scrollHeight;
 
     const generateResponse = (userMessage) => {
@@ -271,8 +271,17 @@ document.addEventListener("DOMContentLoaded", function() {
         conversations: []
     };
 
-    // If there are messages, remove the animation class from the elements
-    if (chatData[botId].conversations.length == 0) {
+    // Assuming you have access to the current bot ID in your JavaScript code
+    const currentBotId = botId; // Replace this with your actual current bot ID
+
+    // Find the link element for the Text Messaging UI
+    const textMessagingLink = document.querySelector('.dropdown-content a[href="chatpage.html"]');
+
+    // Update the href attribute of the link to include the current bot ID
+    textMessagingLink.setAttribute('href', `chatpage.html?id=${currentBotId}`);
+
+     // If there are messages, remove the animation class from the elements
+     if (chatData[botId].conversations.length == 0) {
         document.querySelector('.background img').classList.add('background-img-intro');
         document.querySelector('.bf-img').classList.add('bf-img-intro');
         document.querySelector('.bf-img img').classList.add('bf-img-img-intro');

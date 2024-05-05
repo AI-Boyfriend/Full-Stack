@@ -3,7 +3,11 @@ const bftrack = document.getElementById("bf-track");
 const bf = document.querySelectorAll('bf-track .image');
 const confirmBtn = document.getElementById('choosebtn');
 
-const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
+const handleOnDown = e => {
+  track.dataset.mouseDownAt = e.clientX;
+  track.dataset.percentage = 0;
+}
+  
 
 let indexInRange = -1;
 
@@ -31,6 +35,8 @@ const handleOnUp = () => {
 
 const handleOnMove = e => {
   if(track.dataset.mouseDownAt === "0") return;
+
+  //console.log(track.dataset.percentage);
   
   const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
         maxDelta = window.innerWidth / 2;
@@ -87,6 +93,10 @@ confirmBtn.onclick = function()
   {
     document.location.href = "bfCreator.html";
   }
+}
+
+if (indexInRange === -1) {
+  confirmBtn.disabled = true;
 }
 
 
