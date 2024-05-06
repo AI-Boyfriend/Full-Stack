@@ -1,3 +1,5 @@
+const playback=document.querySelector('.playback');
+
 const chatbox = document.querySelector(".chat-container .chatbox");
 const chatcontainer = document.querySelector(".chat-container");
 const chatInput = document.querySelector(".input-container textarea");
@@ -50,6 +52,51 @@ home.addEventListener('click', handleTransition);
 let botId;
 
 document.addEventListener("DOMContentLoaded", function() {
+
+
+
+
+
+    /*
+    ---------------------------------------------------------------------------------------------------------------------
+    JOSE'S CODE
+    ---------------------------------------------------------------------------------------------------------------------
+    */
+    async function wordToSpeech(message){
+        const response = await fetch('https://api.openai.com/v1/audio/speech', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${API_KEY}`
+            },
+            body: JSON.stringify({
+                model: "tts-1",
+                input: message,
+                voice: "onyx",
+            })
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const mp3Blob = await response.blob();
+        const mp3URL=URL.createObjectURL(mp3Blob);
+        playback.src=mp3URL;
+    
+    // Ensure that the audio is loaded before attempting to play
+        playback.addEventListener('loadedmetadata', () => {
+            playback.play();
+        });
+
+    }
+    /*
+    ---------------------------------------------------------------------------------------------------------------------
+    JOSE'S CODE
+    ---------------------------------------------------------------------------------------------------------------------
+    */
+
+
+
+
     // Function to get URL parameter by name
     const getUrlParameter = (name) => {
         name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
@@ -154,7 +201,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     let userMessage = null; // Variable to store user's message
-    const API_KEY = "LMAOOOOOO U DONT HAVE THE API KEY";
+    const API_KEY = "API KEY";
     const inputInitHeight = chatInput.scrollHeight;
 
     const generateResponse = (userMessage) => {
@@ -183,6 +230,7 @@ document.addEventListener("DOMContentLoaded", function() {
             addToConversation(botId, botResponse, "assistant");
 
             conversationMemory.push(userMessage);
+            wordToSpeech(data.choices[0].message.content);
             conversationMemory.push(data.choices[0].message.content);
 
             const chatMessageLiBot = createChatLi(data.choices[0].message.content, "incoming");

@@ -305,7 +305,12 @@ let chatData = loadChatData() || {
         hobbies: hobbies,
         emotion: emotion
     },
-    background,
+    function() {
+        if(background==null)
+            return "images/bg_acfe.png";
+        else
+            return background;
+    },
     conversations: []
 };
 
