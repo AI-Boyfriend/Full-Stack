@@ -1,7 +1,6 @@
 const chatbox = document.querySelector(".chat-container .chat-box");
 const inputRecorder = document.querySelector(".input-recorder .input-msg");
 const chatInput = document.querySelector(".input-container textarea");
-const sendChatBtn = document.querySelector(".input-container span");
 
 var bfName = localStorage.getItem('boyfriendName');
 
@@ -19,6 +18,8 @@ var emotion = localStorage.getItem('emotion');
 var bfImageNew = localStorage.getItem('bfImage');
 var bfImage = document.getElementById("bf");
 bfImage.src = bfImageNew;
+
+var background = document.getElementById("bg");
 
 
 
@@ -121,6 +122,10 @@ document.addEventListener("DOMContentLoaded", function() {
     spanElement.innerHTML = botName;
     spanElementBg.innerHTML = botName;
 
+    const botBackground = chatDataForBot ? chatDataForBot.background : "";
+
+    background.src = botBackground
+
     let conversationMemory = [];
     const MAX_MEMORY_SIZE = 5;
 
@@ -147,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     let userMessage = null; // Variable to store user's message
-    const API_KEY = "LMAOOOOOOOOOOO U DONT HAVE THE API KEY";
+    const API_KEY = "OH NOOOOOOOO WHERE'S THE API KEY!!??!?!?!?!?";
     const inputInitHeight = chatInput.scrollHeight;
 
     const generateResponse = (userMessage) => {
@@ -263,8 +268,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    sendChatBtn.addEventListener("click", handleChat);
-
     const inputRecorderContainer = document.getElementById("input-recorder");
     const showUserBtn = document.getElementById("show-user-btn");
 
@@ -293,6 +296,7 @@ document.addEventListener("DOMContentLoaded", function() {
             hobbies: hobbies,
             emotion: emotion
         },
+        backgroundImg: "images/bg_cafe.png",
         conversations: []
     };
 
@@ -308,6 +312,44 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = `chatpage.html?id=${botId}`;
         }, 500);
     })
+
+    let changeBg = document.getElementById('changeBg');
+    let bgPopup = document.getElementById('bgPopup');
+    
+
+    changeBg.addEventListener(
+        "click",
+        function () {
+            bgPopup.classList.add("show");
+        }
+    )
+
+    window.addEventListener(
+        "click",
+        function (event) {
+            if (!bgPopup.contains(event.target) && !changeBg.contains(event.target)) {
+                bgPopup.classList.remove("show");
+            }
+        }
+    )
+    const imageGrid = document.querySelectorAll('.image-grid img');
+
+    // Add click event listener to each image
+    imageGrid.forEach(img => {
+        img.addEventListener('click', function () {
+            // Get the source of the clicked image
+            const src = this.getAttribute('src');
+
+            // Extract the filename without "_lq" from the source
+            const filename = src.replace('_lq', '');
+            
+            // Update the background image source
+            background.setAttribute('src', filename);
+            updateBg(botId, filename);
+        });
+    });
+
+    
 
      // If there are messages, remove the animation class from the elements
      if (chatData[botId].conversations.length == 0) {
@@ -331,6 +373,12 @@ document.addEventListener("DOMContentLoaded", function() {
         if (chatData[botId].conversations.length > MAX_HISTORY_SIZE) {
             chatData[botId].conversations.shift(); // Remove oldest message
         }
+        saveChatData(chatData);
+    }
+
+    const updateBg = (botId, src) => {
+        if (!chatData[botId]) return;
+        chatData[botId].background = src;
         saveChatData(chatData);
     }
 });

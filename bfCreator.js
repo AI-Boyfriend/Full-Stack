@@ -265,8 +265,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 personalities: personalities,
                 talk: talk,
                 hobbies: hobbies,
-                emotion: emotion
-            }, localStorage.getItem("bfImage"));
+                emotion: emotion,
+            },
+            "images/bg_cafe.png",
+            localStorage.getItem("bfImage"));
 
             transition_el_2.classList.add('is-active');
 
@@ -303,15 +305,16 @@ let chatData = loadChatData() || {
         hobbies: hobbies,
         emotion: emotion
     },
+    background,
     conversations: []
 };
 
-// Function to add a new chat bot and save to localStorage
-const addChatBot = (botId, botName, botSettings, botImage) => {
+const addChatBot = (botId, botName, botSettings, background, botImage) => {
     chatData[botId] = {
         botName,
         botSettings,
         botImage,
+        background,
         conversations: []
     };
     saveChatData(chatData);
@@ -353,11 +356,3 @@ const deleteChatBot = (botId) => {
     }
     return false; // Indicate bot not found
 }
-
-// Example usage to delete a chat bot
-/* const deleted = deleteChatBot("bot1");
-if (deleted) {
-    console.log("Chat bot deleted successfully.");
-} else {
-    console.log("Chat bot not found.");
-} */

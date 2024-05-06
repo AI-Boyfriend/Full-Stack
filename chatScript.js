@@ -1,7 +1,6 @@
 const chatbox = document.querySelector(".chat-container .chatbox");
 const chatcontainer = document.querySelector(".chat-container");
 const chatInput = document.querySelector(".input-container textarea");
-const sendChatBtn = document.querySelector(".input-container span");
 
 var bfName = localStorage.getItem('boyfriendName');
 
@@ -10,6 +9,8 @@ spanElement.innerHTML = bfName;
 
 var spanElementBg = document.getElementById("bf-name-bg").getElementsByTagName("span")[0];
 spanElementBg.innerHTML = bfName;
+
+var background = document.getElementById("bg");
 
 var personalities = localStorage.getItem('personalities');
 var talk = localStorage.getItem('talk');
@@ -87,7 +88,9 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log("Last user message:", lastUserMessage);
     // Append the user's message to the input recorder
 
+    const botBackground = chatDataForBot ? chatDataForBot.background : "";
 
+    background.src = botBackground
 
 
     // Assuming chatbox is the element where you want to append the messages
@@ -151,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     let userMessage = null; // Variable to store user's message
-    const API_KEY = "WOMP WOMP THE API KEY DOESNT SEEM TO BE HERE. I WONDER WHERE IT COULD BE.";
+    const API_KEY = "LMAOOOOOO U DONT HAVE THE API KEY";
     const inputInitHeight = chatInput.scrollHeight;
 
     const generateResponse = (userMessage) => {
@@ -240,8 +243,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    sendChatBtn.addEventListener("click", handleChat);
-
     const saveChatData = (data) => {
         localStorage.setItem("chatData", JSON.stringify(data));
     }
@@ -285,6 +286,48 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = `datingsim.html?id=${botId}`;
         }, 500);
     })
+
+    let changeBg = document.getElementById('changeBg');
+    let bgPopup = document.getElementById('bgPopup');
+    
+
+    changeBg.addEventListener(
+        "click",
+        function () {
+            bgPopup.classList.add("show");
+        }
+    )
+
+    window.addEventListener(
+        "click",
+        function (event) {
+            if (!bgPopup.contains(event.target) && !changeBg.contains(event.target)) {
+                bgPopup.classList.remove("show");
+            }
+        }
+    )
+    const imageGrid = document.querySelectorAll('.image-grid img');
+
+    // Add click event listener to each image
+    imageGrid.forEach(img => {
+        img.addEventListener('click', function () {
+            // Get the source of the clicked image
+            const src = this.getAttribute('src');
+
+            // Extract the filename without "_lq" from the source
+            const filename = src.replace('_lq', '');
+            
+            // Update the background image source
+            background.setAttribute('src', filename);
+            updateBg(botId, filename);
+        });
+    });
+
+    const updateBg = (botId, src) => {
+        if (!chatData[botId]) return;
+        chatData[botId].background = src;
+        saveChatData(chatData);
+    }
 });
 
 

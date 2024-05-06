@@ -8,7 +8,7 @@
     z-index: 1000000000000000000;
     visibility: visible;
     background-color: black;
-    transition: 0.5s ease-out;
+    transition: 0.5s ease-in-out;
 }
 
 .transition-1.is-active

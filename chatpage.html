@@ -18,17 +18,38 @@
       <li><a id='home' href="home.html">Home</a></li>
       <li><a href="#">About</a></li>
       <li class="dropdown">
-        <a href="#" class="dropbtn">Settings</a>
-        <ul class="dropdown-content">
-          <li><a id="toDate">Dating Sim UI</a></li>
-        </ul>
-      </li>
+        <a class="dropbtn">Settings</a>
+        <div class="dropdown-content">
+            <a id="toDate">Dating Sim</a>
+            <a id="changeBg">Background</a>
+        </div>
+    </li>
       <li><a href="#">Account</a></li>
     </ul>
   </header>
 
+  <div id="bgPopup" class="bgPopup">
+    <div class="popup-content">
+        <h1>Choose A Background</h1>
+        <div class="image-grid">
+            <img src="images/bg_booth_lq.jpeg" id="booth">
+            <img src="images/bg_cafe_lq.png" id="cafe">
+            <img src="images/bg_cove_lq.jpeg" id="cove">
+            <img src="images/bg_day_park_lq.jpeg" id="day-park">
+            <img src="images/bg_ddlc_lq.png" id="forest">
+            <img src="images/bg_neo_city_lq.jpeg" id="neo-city">
+            <img src="images/bg_park_alt_lq.jpeg" id="park">
+            <img src="images/bg_pier_lq.jpeg" id="pier">
+            <img src="images/bg_room_lq.jpeg" id="room">
+            <img src="images/bg_street_mall_lq.jpg" id="street-mall">
+            <img src="images/bg_theme_park_lq.jpeg" id="theme-park">
+            <img src="images/bg_train_lq.jpeg" id="train">
+        </div>
+    </div>
+  </div>
+
   <div class="background">
-    <img src="images/ddlcbg_hq.png" id="bg">
+    <img src="images/bg_cafe.png" id="bg">
   </div>
   <div class="bf-img">
     <img src="images/aibf_lq_10.png" id="bf">
@@ -50,7 +71,6 @@
     </div>
     <div class="input-container">
       <textarea placeholder="Talk to your boyfriend..." spellcheck="false" required></textarea>
-      <span id="send-btn" class="material-symbols-rounded">></span>
     </div>
   </div>
 </body>
